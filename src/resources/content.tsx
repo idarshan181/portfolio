@@ -60,18 +60,24 @@ const home = {
   title: `${person.name}'s Portfolio`,
   description: `A showcase of my journey and work as a ${person.role}.`,
   headline: <>Full Stack Developer and Builder</>,
+  // subline: (
+  //   <>
+  //     Hi, I’m
+  //     {' '}
+  //     <span className="font-medium text-foreground">{person.name}</span>
+  //     , a full stack developer crafting scalable systems and AI-powered solutions. I specialize in building smart software that empowers teams, boosts businesses, and keeps your tech stack ahead of the curve.
+
+  //   </>
+
+  // ),
   subline: (
-    <>
-      I'm
+    <span className="font-light text-foreground">
+      Hi, I’m
       {' '}
-      {person.name}
-      , a full stack developer passionate about scalable systems and intuitive
-      design. At
+      <span className="font-bold text-foreground">{person.name}</span>
       {' '}
-      <span className="font-bold text-blue-600">FLY</span>
-      , I craft solutions
-      that empower teams and businesses.
-    </>
+      👋, a full stack developer building scalable systems and AI-powered solutions. Exploring the RAG hype—because even AI needs a fact-checker!
+    </span>
   ),
 };
 

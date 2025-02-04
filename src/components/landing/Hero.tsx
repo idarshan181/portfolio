@@ -16,7 +16,7 @@ export default function Hero({ className = '', style, ...props }: HeroProps) {
       {/* Left Section */}
       <div className="flex-1 px-6 py-10 text-center md:text-left">
         {/* Headline */}
-        <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-foreground sm:text-5xl">
+        <h1 className="text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl">
           {home.headline}
         </h1>
 
@@ -29,18 +29,6 @@ export default function Hero({ className = '', style, ...props }: HeroProps) {
         <div className="mt-8 flex flex-col items-center gap-4 md:flex-row md:items-start">
           <Button asChild size="lg" variant="default">
             <Link href="/about" className="flex items-center gap-2">
-              {/* {about.avatar.display && (
-                <Avatar>
-                  <AvatarImage
-                    src="/images/avatar_main.webp"
-                    alt={person.name}
-                    className="size-12 rounded-full"
-                  />
-                  <AvatarFallback>
-                    {`${person.firstName[0]}${person.lastName[0]}`}
-                  </AvatarFallback>
-                </Avatar>
-              )} */}
               {about.title}
             </Link>
           </Button>
@@ -52,7 +40,7 @@ export default function Hero({ className = '', style, ...props }: HeroProps) {
 
       {/* Right Section (Headshot) */}
       <div className="relative mb-10 flex-1 md:mb-0">
-        <div className="relative mx-auto size-40 overflow-hidden rounded-full ring-4 ring-blue-400 drop-shadow-2xl dark:ring-blue-600 sm:size-80 ">
+        <div className="relative mx-auto size-40 overflow-hidden rounded-full ring-4 ring-primary drop-shadow-2xl  sm:size-80 ">
           <Image
             src={DarshanHeadshot}
             alt={`${person.name}'s Headshot`}

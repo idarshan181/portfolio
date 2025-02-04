@@ -48,7 +48,7 @@ export const BaseTemplate: React.FC<BaseTemplateProps> = (props) => {
           </div>
         </header>
 
-        <main className="mx-40 pt-20">{props.children}</main>
+        <main className="mx-36 pt-20">{props.children}</main>
         <Footer />
       </div>
     </div>

@@ -35,7 +35,7 @@ export async function generateMetadata() {
 
 export default async function Index() {
   return (
-    <div className="flex w-full flex-col items-center">
+    <div className="flex w-full flex-col items-center ">
       {/* Metadata (Dynamic SEO with Hero Content) */}
       <script
         type="application/ld+json"
