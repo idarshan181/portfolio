@@ -72,6 +72,21 @@ export default antfu(
       'test/prefer-lowercase-title': 'off', // Allow using uppercase titles in test titles
       'react/require-default-props': 'off',
 
+      // 'antfu/no-top-level-await': 'off', // Allow top-level await
+      // 'style/brace-style': ['error', '1tbs'], // Use the default brace style
+      // 'ts/consistent-type-definitions': ['error', 'type'], // Use `type` instead of `interface`
+      // 'react/prefer-destructuring-assignment': 'off', // Allow manually setting ref
+      // 'react/require-default-props': 'off',
+      // 'react/no-unknown-property': 'off', // Prevents auto-modification of JSX props
+      // 'react/no-unused-prop-types': 'off', // Avoids unnecessary prop type checks
+      // 'react/no-unescaped-entities': 'off', // Stops unnecessary refactoring of JSX text
+      // 'react/jsx-props-no-spreading': 'off', // Allows spreading props like `{...props}`
+      // 'react/jsx-no-bind': 'off', // Allows inline functions (useful for event handlers)
+      // 'react/jsx-key': 'warn', // Keep key warnings (important)
+      // 'react/no-unknown-property': 'off', // Ensures ref stays unchanged
+      // 'react/display-name': 'off', // Prevents auto-removal of display names
+      // 'tailwindcss/classnames-order': 'off', // Avoids auto-sorting classnames
+
     },
   },
 );
