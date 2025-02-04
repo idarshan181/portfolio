@@ -1,7 +1,7 @@
+import DarshanHeadshot from '@/public/images/avatar_main.webp';
 import { about, home, person } from '@/resources';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Button } from '../ui/button';
 
 type HeroProps = React.ComponentProps<'div'>;
@@ -29,18 +29,18 @@ export default function Hero({ className = '', style, ...props }: HeroProps) {
         <div className="mt-8 flex flex-col items-center gap-4 md:flex-row md:items-start">
           <Button asChild size="lg" variant="default">
             <Link href="/about" className="flex items-center gap-2">
-              {about.avatar.display && (
+              {/* {about.avatar.display && (
                 <Avatar>
                   <AvatarImage
-                    src="https://github.com/shadcn.png"
+                    src="/images/avatar_main.webp"
                     alt={person.name}
-                    className="size-8 rounded-full"
+                    className="size-12 rounded-full"
                   />
                   <AvatarFallback>
                     {`${person.firstName[0]}${person.lastName[0]}`}
                   </AvatarFallback>
                 </Avatar>
-              )}
+              )} */}
               {about.title}
             </Link>
           </Button>
@@ -52,12 +52,12 @@ export default function Hero({ className = '', style, ...props }: HeroProps) {
 
       {/* Right Section (Headshot) */}
       <div className="relative mb-10 flex-1 md:mb-0">
-        <div className="relative mx-auto size-40 overflow-hidden rounded-full shadow-lg ring-4 ring-blue-400 dark:ring-blue-600 sm:size-56">
+        <div className="relative mx-auto size-40 overflow-hidden rounded-full ring-4 ring-blue-400 drop-shadow-2xl dark:ring-blue-600 sm:size-80 ">
           <Image
-            src="https://github.com/shadcn.png"
+            src={DarshanHeadshot}
             alt={`${person.name}'s Headshot`}
-            width={224} // For h-56 (56 * 4 = 224px)
-            height={224}
+            width={400} // For h-56 (56 * 4 = 224px)
+            height={400}
             className="size-full object-cover"
           />
         </div>

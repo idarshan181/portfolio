@@ -60,7 +60,7 @@ export default async function Index() {
       />
 
       {/* Hero Section */}
-      <Hero className="relative size-full border-2 border-red-500 bg-background" />
+      <Hero className="relative size-full bg-background" />
 
       {/* Projects Section */}
       <div className="mx-auto max-w-5xl px-4 py-16 sm:py-20">
