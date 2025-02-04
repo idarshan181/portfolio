@@ -6,10 +6,11 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
-import { Host_Grotesk } from 'next/font/google';
+import { ThemeProvider } from 'next-themes';
+
+import { Inter } from 'next/font/google';
 
 import { notFound } from 'next/navigation';
-
 import '@/styles/global.css';
 
 export const metadata: Metadata = {
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
   ],
 };
 
-const grotesk = Host_Grotesk({
+const grotesk = Inter({
   weight: ['300', '400', '500', '600', '700', '800'],
   display: 'swap',
   style: ['normal', 'italic'],
@@ -101,16 +102,23 @@ export default async function RootLayout(props: {
   return (
     <html lang={locale} className={grotesk.className}>
       <body suppressHydrationWarning>
-        <NextIntlClientProvider
-          locale={locale}
-          messages={messages}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
         >
-          {props.children}
+          <NextIntlClientProvider
+            locale={locale}
+            messages={messages}
+          >
+            {props.children}
 
-          {/* <DemoBadge /> */}
-        </NextIntlClientProvider>
-        <Analytics />
-        <SpeedInsights />
+            {/* <DemoBadge /> */}
+          </NextIntlClientProvider>
+          <Analytics />
+          <SpeedInsights />
+        </ThemeProvider>
       </body>
     </html>
   );
