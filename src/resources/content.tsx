@@ -60,16 +60,6 @@ const home = {
   title: `${person.name}'s Portfolio`,
   description: `A showcase of my journey and work as a ${person.role}.`,
   headline: <>Full Stack Developer and Builder</>,
-  // subline: (
-  //   <>
-  //     Hi, I’m
-  //     {' '}
-  //     <span className="font-medium text-foreground">{person.name}</span>
-  //     , a full stack developer crafting scalable systems and AI-powered solutions. I specialize in building smart software that empowers teams, boosts businesses, and keeps your tech stack ahead of the curve.
-
-  //   </>
-
-  // ),
   subline: (
     <span className="font-light text-foreground">
       Hi, I’m
@@ -114,35 +104,24 @@ const about = {
     title: 'Work Experience',
     experiences: [
       {
-        company: 'FLY',
-        timeframe: '2022 - Present',
-        role: 'Senior Design Engineer',
+        company: 'PlayPower Labs',
+        timeframe: 'May 2020 – August 2023',
+        role: 'Full-Stack Developer',
         achievements: [
-
-          `Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.`,
-
-          `Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.`,
+          `Built a Super Admin portal to manage 50+ organizations and 2,500+ users, streamlining operations and improving user management.`,
+          `Developed scalable APIs and AI-driven pipelines for automating PDF processing, enabling the handling of 13 million assessments in 3 days.`,
+          `Digitized textbooks into interactive PDFs, boosting usage by 80%, and automated real-time performance reports for over 10,000 parents using WhatsApp API.`,
+          `Mentored junior engineers and guided architectural decisions, ensuring performant, maintainable code.`,
         ],
-        images: [
-          // optional: leave the array empty if you don't want to display images
-          {
-            src: '/images/projects/project-01/cover-01.jpg',
-            alt: 'Once UI Project',
-            width: 16,
-            height: 9,
-          },
-        ],
+        images: [],
       },
       {
-        company: 'Creativ3',
-        timeframe: '2018 - 2022',
-        role: 'Lead Designer',
+        company: 'PlayPower Labs',
+        timeframe: 'May 2019 – May 2020',
+        role: 'Front End Developer Intern',
         achievements: [
-          `Developed a design system that unified the brand across multiple platforms, improving design consistency by 40%.`,
-          `Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.`,
+          `Developed a scalable CMS with React, TypeScript, and AWS, improving authoring efficiency by 40% and cutting costs by 30%.`,
+          `Built cross-platform UI components and automated data processing using AWS Lambda, enhancing user experience across devices.`,
         ],
         images: [],
       },

@@ -20,7 +20,7 @@ export default function WorkExperience({ experience, isLast }: WorkExperiencePro
         <CardHeader className="flex flex-row items-center justify-between p-1">
           <div className="flex w-fit flex-col">
             <span className="text-lg font-bold">{experience.company}</span>
-            <span className="mt-0 text-sm text-green-500">{experience.role}</span>
+            <span className="mt-0 text-sm text-primary">{experience.role}</span>
           </div>
           <span className="text-sm text-gray-500 dark:text-gray-400">{experience.timeframe}</span>
         </CardHeader>
@@ -31,7 +31,7 @@ export default function WorkExperience({ experience, isLast }: WorkExperiencePro
             {experience.achievements.map(achievement => (
               <li
                 key={achievement.split(' ')[0]}
-                className="relative pl-6 text-base before:absolute before:left-0 before:text-green-500 before:content-['•']"
+                className="relative pl-6 text-base before:absolute before:left-0 before:text-primary before:content-['•']"
               >
                 {achievement}
               </li>
