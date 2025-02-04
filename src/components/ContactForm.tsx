@@ -10,6 +10,7 @@ import PhoneInputWithCountry from 'react-phone-number-input/react-hook-form';
 import { z } from 'zod';
 
 import { Button } from './ui/button';
+import { Card, CardContent } from './ui/card';
 import { Checkbox } from './ui/checkbox';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
@@ -106,133 +107,137 @@ export default function ContactForm({ translations, onSubmit }: ContactFormProps
   };
 
   return (
-    <form onSubmit={handleSubmit(handleFormSubmit)} className="w-full space-y-6">
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        <div>
-          <Label htmlFor="firstName">
-            {translations.firstName}
-          </Label>
-          <Input
-            {...register('firstName')}
-            type="text"
-            placeholder="First Name"
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-          />
-          {errors.firstName && (
-            <p className="mt-1 text-sm text-red-600">{errors.firstName.message}</p>
-          )}
-        </div>
+    <Card className="w-full space-y-6">
+      <CardContent>
+        <form onSubmit={handleSubmit(handleFormSubmit)} className="">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <div>
+              <Label htmlFor="firstName">
+                {translations.firstName}
+              </Label>
+              <Input
+                {...register('firstName')}
+                type="text"
+                placeholder="First Name"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              />
+              {errors.firstName && (
+                <p className="mt-1 text-sm text-red-600">{errors.firstName.message}</p>
+              )}
+            </div>
 
-        <div>
-          <Label htmlFor="lastName">
-            {translations.lastName}
-          </Label>
-          <Input
-            {...register('lastName')}
-            type="text"
-            placeholder="Last Name"
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-          />
-          {errors.lastName && (
-            <p className="mt-1 text-sm text-red-600">{errors.lastName.message}</p>
-          )}
-        </div>
-      </div>
+            <div>
+              <Label htmlFor="lastName">
+                {translations.lastName}
+              </Label>
+              <Input
+                {...register('lastName')}
+                type="text"
+                placeholder="Last Name"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              />
+              {errors.lastName && (
+                <p className="mt-1 text-sm text-red-600">{errors.lastName.message}</p>
+              )}
+            </div>
+          </div>
 
-      <div>
-        <Label htmlFor="email">
-          {translations.email}
-        </Label>
-        <Input
-          {...register('email')}
-          type="email"
-          placeholder="you@company.com"
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-        />
-        {errors.email && (
-          <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
-        )}
-      </div>
+          <div>
+            <Label htmlFor="email">
+              {translations.email}
+            </Label>
+            <Input
+              {...register('email')}
+              type="email"
+              placeholder="you@company.com"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            />
+            {errors.email && (
+              <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
+            )}
+          </div>
 
-      <div>
-        <Label htmlFor="phoneNumber">
-          {translations.phone}
-        </Label>
-        {/* <Input
+          <div>
+            <Label htmlFor="phoneNumber">
+              {translations.phone}
+            </Label>
+            {/* <Input
           {...register('phoneNumber')}
           type="tel"
           placeholder="+1(555)555-5555"
           className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
         /> */}
 
-        <PhoneInputWithCountry
-          name="phoneNumber"
-          control={control}
-          rules={{ required: true }}
-          placeholder="12345-67890"
-          className="mt-1 block w-full rounded-md focus:border-blue-500 focus:ring-blue-500"
-          defaultCountry="IN"
-          inputComponent={Input}
-          countrySelectProps={{
-            className: 'border-gray-300 shadow-sm',
-          }}
-          onBlur={(e: any) => {
-            console.log(getValues('phoneNumber'));
-            console.log({ e });
-          }}
-        />
+            <PhoneInputWithCountry
+              name="phoneNumber"
+              control={control}
+              rules={{ required: true }}
+              placeholder="12345-67890"
+              className="mt-1 block w-full rounded-md focus:border-blue-500 focus:ring-blue-500"
+              defaultCountry="IN"
+              inputComponent={Input}
+              countrySelectProps={{
+                className: 'border-gray-300 shadow-sm',
+              }}
+              onBlur={(e: any) => {
+                console.log(getValues('phoneNumber'));
+                console.log({ e });
+              }}
+            />
 
-        {errors.phoneNumber && (
-          <p className="mt-1 text-sm text-red-600">{errors.phoneNumber.message}</p>
-        )}
-      </div>
+            {errors.phoneNumber && (
+              <p className="mt-1 text-sm text-red-600">{errors.phoneNumber.message}</p>
+            )}
+          </div>
 
-      <div>
-        <Label htmlFor="message">
-          {translations.message}
-        </Label>
-        <Textarea
-          {...register('message')}
-          placeholder="Leave us a message..."
-          id="message"
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-        />
-        {errors.email && (
-          <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
-        )}
-      </div>
+          <div>
+            <Label htmlFor="message">
+              {translations.message}
+            </Label>
+            <Textarea
+              {...register('message')}
+              placeholder="Leave us a message..."
+              id="message"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            />
+            {errors.email && (
+              <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
+            )}
+          </div>
 
-      <div>
-        <Label htmlFor="services">{translations.services}</Label>
-        <div className="mt-1 grid w-full grid-cols-1 gap-4 px-1 md:grid-cols-2">
-          {services.map(service => (
-            <div key={service.id} className="flex items-center space-x-2">
-              <Checkbox
-                id={service.id}
-                {...register('services', {
-                  setValueAs: (value: any) =>
-                    value ? [...(getValues('services') || []), service.id] : getValues('services').filter((id: string) => id !== service.id),
-                })}
-                value={service.id}
-              />
-              <Label htmlFor={service.id}>{service.label}</Label>
+          <div>
+            <Label htmlFor="services">{translations.services}</Label>
+            <div className="mt-1 grid w-full grid-cols-1 gap-4 px-1 md:grid-cols-2">
+              {services.map(service => (
+                <div key={service.id} className="flex items-center space-x-2">
+                  <Checkbox
+                    id={service.id}
+                    {...register('services', {
+                      setValueAs: (value: any) =>
+                        value ? [...(getValues('services') || []), service.id] : getValues('services').filter((id: string) => id !== service.id),
+                    })}
+                    value={service.id}
+                  />
+                  <Label htmlFor={service.id}>{service.label}</Label>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-        {errors.services && (
-          <p className="mt-1 text-sm text-red-600">{errors.services.message}</p>
-        )}
-      </div>
+            {errors.services && (
+              <p className="mt-1 text-sm text-red-600">{errors.services.message}</p>
+            )}
+          </div>
 
-      <div className="">
-        <Button
-          type="submit"
-          disabled={isSubmitting}
-          className="w-full rounded-md bg-black px-4 py-2 text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 disabled:opacity-50"
-        >
-          {isSubmitting ? translations.sending : translations.submit}
-        </Button>
-      </div>
-    </form>
+          <div className="">
+            <Button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full rounded-md bg-black px-4 py-2 text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 disabled:opacity-50"
+            >
+              {isSubmitting ? translations.sending : translations.submit}
+            </Button>
+          </div>
+        </form>
+      </CardContent>
+    </Card>
   );
 }

@@ -21,7 +21,7 @@ export const LocaleSwitcher = () => {
       <SelectTrigger>
         <SelectValue placeholder={locale}></SelectValue>
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent className="z-50">
         {routing.locales.map(elt => (
           <SelectItem key={elt} value={elt}>
             {elt.toUpperCase()}

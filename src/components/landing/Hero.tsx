@@ -1,62 +1,71 @@
-import { useTranslations } from 'next-intl';
+import { about, home, person } from '@/resources';
+import Image from 'next/image';
 import Link from 'next/link';
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Button } from '../ui/button';
 
 type HeroProps = React.ComponentProps<'div'>;
 
 export default function Hero({ className = '', style, ...props }: HeroProps) {
-  const t = useTranslations('Hero');
-
   return (
     <div
-      className={`relative flex h-screen w-full flex-col p-20 ${className}`}
+      className={`relative flex h-[70vh] flex-col-reverse items-center md:flex-row ${className}`}
       style={style}
       {...props}
     >
-      {/* <div className="square-grid-bg mask-radial" /> */}
-      {/* Content */}
-      <div className="z-10 m-0 mb-6 p-0">
-        <h1 className="max-w-4xl text-[60px] font-medium leading-[70px] tracking-tight text-black">
-          AI-powered Search
-          <br />
-          <span className="text-[#00b86b]">smarter, </span>
-          <span className="text-[#00b86b]"> secure, </span>
-          and
-          <span className="text-[#00b86b]"> private.</span>
+      {/* Left Section */}
+      <div className="flex-1 px-6 py-10 text-center md:text-left">
+        {/* Headline */}
+        <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-foreground sm:text-5xl">
+          {home.headline}
         </h1>
-        <p className="max-w-2xl text-xl font-normal leading-9 text-gray-600">Engineered for top-tier performance, security, and reliability. Delivers a seamless, intuitive experience powered by advanced AI.</p>
-      </div>
 
-      <div className="mb-5 flex h-12 flex-row items-center gap-x-4">
-        <Button className="h-12 text-base" aria-label={t('ctaPrimary')}>
-          {t('ctaPrimary')}
-        </Button>
-        <Button variant="outline" className="h-12 bg-none text-base text-gray-600 hover:bg-transparent hover:text-[#00b86b]" aria-label={t('ctaSecondary')}>
-          {' '}
-          {t('ctaSecondary')}
-          {' '}
-        </Button>
-      </div>
-
-      <div className="text-base font-medium text-black">
-        <Link
-          href="/sign-up/"
-          className="group relative border-none underline transition-all hover:text-[#00b86b]"
-        >
-          {t('exploreLink')}
-          <span className="ml-2 inline-block no-underline transition-transform duration-300 group-hover:translate-x-2 ">
-            →
-          </span>
-        </Link>
-
-      </div>
-
-      <div className="mt-auto flex flex-col items-center text-sm font-medium uppercase leading-none sm:hidden md:visible">
-        <p className="">
-          Trusted by top engineering and machine learning teams
+        {/* Subline */}
+        <p className="mt-4 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+          {home.subline}
         </p>
+
+        {/* CTA Section */}
+        <div className="mt-8 flex flex-col items-center gap-4 md:flex-row md:items-start">
+          <Button asChild size="lg" variant="default">
+            <Link href="/about" className="flex items-center gap-2">
+              {about.avatar.display && (
+                <Avatar>
+                  <AvatarImage
+                    src="https://github.com/shadcn.png"
+                    alt={person.name}
+                    className="size-8 rounded-full"
+                  />
+                  <AvatarFallback>
+                    {`${person.firstName[0]}${person.lastName[0]}`}
+                  </AvatarFallback>
+                </Avatar>
+              )}
+              {about.title}
+            </Link>
+          </Button>
+          <Button asChild size="lg" variant="outline">
+            <Link href="/projects">View Projects</Link>
+          </Button>
+        </div>
       </div>
 
+      {/* Right Section (Headshot) */}
+      <div className="relative mb-10 flex-1 md:mb-0">
+        <div className="relative mx-auto size-40 overflow-hidden rounded-full shadow-lg ring-4 ring-blue-400 dark:ring-blue-600 sm:size-56">
+          <Image
+            src="https://github.com/shadcn.png"
+            alt={`${person.name}'s Headshot`}
+            width={224} // For h-56 (56 * 4 = 224px)
+            height={224}
+            className="size-full object-cover"
+          />
+        </div>
+
+        {/* Decorative Elements */}
+        <div className="absolute -left-10 -top-10 size-32 rounded-full bg-blue-200 blur-xl dark:bg-blue-800"></div>
+        <div className="absolute right-12 top-12 size-20 rounded-full bg-blue-300 blur-lg dark:bg-blue-700"></div>
+      </div>
     </div>
 
   );

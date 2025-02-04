@@ -6,7 +6,7 @@ export default function ContactBanner({ className = '', style, ...props }: Conta
   const t = useTranslations('Hero');
   // bg-gradient-to-br
   return (
-    <div className={`relative z-10 mx-10 rounded-lg bg-gradient-to-br from-[#007f4e] to-[#00b86b] p-10 md:mx-20 ${className}`} style={style} {...props}>
+    <div className={`relative mx-10 rounded-lg bg-gradient-to-br from-[#007f4e] to-[#00b86b] p-10 md:mx-20 ${className}`} style={style} {...props}>
       {/* Grid Overlay */}
       {/* <div
         className="pointer-events-none absolute inset-0 rounded-lg"

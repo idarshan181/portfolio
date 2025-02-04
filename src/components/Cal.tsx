@@ -1,15 +1,14 @@
 'use client';
 
 import { getCalApi } from '@calcom/embed-react';
-import { useTranslations } from 'next-intl';
 import { useEffect } from 'react';
+import { FaChevronRight } from 'react-icons/fa6';
+import { HiOutlineCalendarDays } from 'react-icons/hi2';
 import { Button } from './ui/button';
 
 type CalProps = React.ComponentProps<'button'>;
 
 export default function Cal({ className = '', style, ...props }: CalProps) {
-  const t = useTranslations('Contact');
-
   useEffect(() => {
     (async function () {
       const cal = await getCalApi({ namespace: '30min' });
@@ -19,6 +18,7 @@ export default function Cal({ className = '', style, ...props }: CalProps) {
   return (
     <Button
       type="button"
+      variant="outline"
       data-cal-namespace="30min"
       data-cal-link="idarshan18/30min"
       data-cal-config='{"layout":"month_view","theme":"light"}'
@@ -26,7 +26,10 @@ export default function Cal({ className = '', style, ...props }: CalProps) {
       className={className}
       {...props}
     >
-      {t('contact_details.chat_with_us_title')}
+      <HiOutlineCalendarDays size={24} />
+      {' '}
+      Schedule a call
+      <FaChevronRight />
     </Button>
   );
 };
