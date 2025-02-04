@@ -1,13 +1,14 @@
 {
   "RootLayout": {
     "home_link": "Accueil",
-    "about_link": "A propos",
+    "about_link": "À propos de moi",
     "counter_link": "Compteur",
     "portfolio_link": "Portfolio",
     "contact_link": "Contact",
-    "pricing_link": "Tarifs",
+    "project_link": "Projets",
     "feature_link": "Fonctionnalités",
     "blog_link": "Blogues",
+    "social_link": "Réseaux sociaux",
     "sign_in_link": "Se connecter",
     "sign_up_link": "S'inscrire"
   },

@@ -1,10 +1,16 @@
 {
   "RootLayout": {
     "home_link": "Home",
-    "about_link": "About",
+    "about_link": "About Me",
+    "project_link": "Projects",
     "contact_link": "Contact",
-    "pricing_link": "Pricing",
     "feature_link": "Features",
+    "hobbies_link": "Hobbies",
+    "social_link": "Socials",
+    "socials": {
+      "linkedin": "LinkedIn",
+      "github": "GitHub"
+    },
     "blog_link": "Blogs",
     "counter_link": "Counter",
     "portfolio_link": "Portfolio",
@@ -16,8 +22,8 @@
     "made_with": "Made with <author></author>."
   },
   "Index": {
-    "meta_title": "Neurix - Your AI Companion",
-    "meta_description": "Neurix is your trusted AI companion, enabling seamless, scalable, and secure AI solutions for all your business needs.",
+    "meta_title": "Darshan Patel | Full Stack Developer | Building Scalable, Modern Web Solutions",
+    "meta_description": "Hey there! I'm Darshan Patel, a Full Stack Developer passionate about crafting scalable, modern, and user-friendly web applications. Explore my projects, skills, and journey in tech!",
     "sponsors_title": "Sponsors"
   },
   "Counter": {
@@ -39,6 +45,12 @@
     "meta_description": "About page description",
     "about_paragraph": "Welcome to our About page! We are a team of passionate individuals dedicated to creating amazing software.",
     "translation_powered_by": "Translation powered by"
+  },
+  "Hobbies": {
+    "meta_title": "Hobbies",
+    "meta_description": "Hobbies page description",
+    "about_paragraph": "Welcome to my Hobby page!",
+    "translation_powered_by": ""
   },
   "Contact": {
     "meta_title": "Contact Us",
