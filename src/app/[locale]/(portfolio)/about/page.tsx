@@ -1,11 +1,14 @@
 /* eslint-disable react-dom/no-dangerously-set-innerhtml */
 import Education from '@/components/about/Education';
+import Scroll from '@/components/about/Scroll';
+
 import TableOfContents from '@/components/about/TableOfContents';
 import WorkExperience from '@/components/about/WorkExperience';
 import Cal from '@/components/Cal';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { about, baseURL, person, social } from '@/resources';
+
 import Link from 'next/link';
 import { FaGlobeAmericas } from 'react-icons/fa';
 
@@ -43,6 +46,7 @@ export default function About() {
 
   return (
     <div className="mx-auto max-w-4xl p-4">
+      <Scroll />
       <script
         type="application/ld+json"
         suppressHydrationWarning

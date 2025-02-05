@@ -5,10 +5,10 @@ type FooterProps = React.ComponentProps<'footer'>;
 
 export default function Footer({ className = '', style, ...props }: FooterProps) {
   return (
-    <footer className={`mt-10 ${className}`} style={style} {...props}>
-      <div className="mx-20 flex flex-row border-t border-gray-300 py-8">
-        <p className="text-sm">{`© Copyright ${new Date().getFullYear()} / ${person.firstName} ${person.lastName} `}</p>
-        <div className="ml-auto flex flex-row items-center justify-center gap-x-4">
+    <footer className={`mx-5 mt-10 md:mx-36 ${className}`} style={style} {...props}>
+      <div className="mb-20 flex w-full flex-col items-center gap-y-4 py-8 md:mb-auto md:flex-row md:gap-y-0 md:border-t md:border-gray-300">
+        <p className="mx-auto text-base md:mx-0">{`© Copyright ${new Date().getFullYear()} / ${person.firstName} ${person.lastName} `}</p>
+        <div className="flex flex-row items-center justify-center gap-x-4 md:ml-auto">
           {social.map(
             item =>
               item.link && (

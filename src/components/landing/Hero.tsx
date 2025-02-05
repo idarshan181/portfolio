@@ -9,30 +9,30 @@ type HeroProps = React.ComponentProps<'div'>;
 export default function Hero({ className = '', style, ...props }: HeroProps) {
   return (
     <div
-      className={`relative flex h-[70vh] flex-col-reverse items-center md:flex-row ${className}`}
+      className={`relative mt-10 flex h-[70vh] flex-col-reverse items-center md:mt-0 md:flex-row ${className}`}
       style={style}
       {...props}
     >
       {/* Left Section */}
       <div className="flex-1 px-6 py-10 text-center md:text-left">
         {/* Headline */}
-        <h1 className="text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl">
+        <h1 className="text-start text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl md:text-center">
           {home.headline}
         </h1>
 
         {/* Subline */}
-        <p className="mt-4 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        <p className="mt-4 text-start text-lg leading-relaxed text-gray-600 dark:text-gray-400">
           {home.subline}
         </p>
 
         {/* CTA Section */}
         <div className="mt-8 flex flex-col items-center gap-4 md:flex-row md:items-start">
-          <Button asChild size="lg" variant="default">
+          <Button asChild size="lg" variant="default" className="w-1/2 md:w-auto">
             <Link href="/about" className="flex items-center gap-2">
               {about.title}
             </Link>
           </Button>
-          <Button asChild size="lg" variant="outline">
+          <Button asChild size="lg" variant="outline" className="w-1/2 md:w-auto">
             <Link href="/projects">View Projects</Link>
           </Button>
         </div>
@@ -51,8 +51,8 @@ export default function Hero({ className = '', style, ...props }: HeroProps) {
         </div>
 
         {/* Decorative Elements */}
-        <div className="absolute -left-10 -top-10 size-32 rounded-full bg-blue-200 blur-xl dark:bg-blue-800"></div>
-        <div className="absolute right-12 top-12 size-20 rounded-full bg-blue-300 blur-lg dark:bg-blue-700"></div>
+        <div className="absolute -left-10 -top-10 hidden size-32 rounded-full bg-blue-200 blur-xl dark:bg-blue-800 md:block"></div>
+        <div className="absolute right-12 top-12 hidden size-20 rounded-full bg-blue-300 blur-lg dark:bg-blue-700 md:block"></div>
       </div>
     </div>
 

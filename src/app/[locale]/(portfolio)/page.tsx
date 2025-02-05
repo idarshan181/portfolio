@@ -63,7 +63,7 @@ export default async function Index() {
       <Hero className="relative size-full bg-background" />
 
       {/* Projects Section */}
-      <div className="mx-auto max-w-5xl px-4 py-16 sm:py-20">
+      <div className="mx-auto max-w-5xl ">
         <Card>
           <CardHeader>
             <CardTitle>Featured Projects</CardTitle>

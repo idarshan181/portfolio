@@ -18,7 +18,7 @@ export default async function Layout(props: {
     home: t('home_link'),
     about: t('about_link'),
     projects: t('project_link'),
-    blogs: t('blog_link'),
+    hobbies: t('hobbies_link'),
     contact: t('contact_link'),
   };
 
