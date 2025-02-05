@@ -27,7 +27,7 @@ export default function Hero({ className = '', style, ...props }: HeroProps) {
 
         {/* CTA Section */}
         <div className="mt-8 flex  flex-row items-center gap-4 md:items-start">
-          <Button asChild size="lg" variant="default" className="w-1/2 text-foreground md:w-auto">
+          <Button asChild size="lg" variant="default" className="w-1/2 text-white md:w-auto">
             <Link href="/about" className="flex items-center gap-2">
               {about.title}
             </Link>
