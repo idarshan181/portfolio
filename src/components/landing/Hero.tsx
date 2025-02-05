@@ -55,6 +55,5 @@ export default function Hero({ className = '', style, ...props }: HeroProps) {
         <div className="absolute right-12 top-12 hidden size-20 rounded-full bg-blue-300 blur-lg dark:bg-blue-700 md:block"></div>
       </div>
     </div>
-
   );
 }
