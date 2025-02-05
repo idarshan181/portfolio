@@ -145,18 +145,80 @@ const about = {
   technical: {
     display: true,
     title: 'Technical Skills',
+    // skills: [
+    //   {
+    //     title: 'Next.js',
+    //     description: <>Building scalable, server-rendered applications.</>,
+    //   },
+    //   {
+    //     title: 'Supabase',
+    //     description: <>Leveraging modern databases for real-time systems.</>,
+    //   },
+    //   {
+    //     title: 'Shadcn',
+    //     description: <>Creating intuitive UI components with Shadcn.</>,
+    //   },
+    // ],
     skills: [
       {
-        title: 'Next.js',
-        description: <>Building scalable, server-rendered applications.</>,
+        category: 'Programming Languages',
+        technologies: [
+          { title: 'JavaScript', icon: 'JavaScript.svg' },
+          { title: 'TypeScript', icon: 'TypeScript.svg' },
+          { title: 'Python', icon: 'Python.svg' },
+          { title: 'Java', icon: 'Java.svg' },
+        ],
       },
       {
-        title: 'Supabase',
-        description: <>Leveraging modern databases for real-time systems.</>,
+        category: 'Frontend',
+        technologies: [
+          { title: 'React', icon: 'React.svg' },
+          { title: 'Next.js', icon: 'Next.js.svg' },
+          { title: 'Tailwind CSS', icon: 'Tailwind-CSS.svg' },
+          { title: 'Bootstrap', icon: 'Bootstrap.svg' },
+          { title: 'Material-UI', icon: 'Material-UI.svg' },
+        ],
       },
       {
-        title: 'Shadcn',
-        description: <>Creating intuitive UI components with Shadcn.</>,
+        category: 'Backend',
+        technologies: [
+          { title: 'Node.js', icon: 'Node.js.svg' },
+          { title: 'FastAPI', icon: 'FastAPI.svg' },
+          { title: 'PostgreSQL', icon: 'PostgresSQL.svg' },
+          { title: 'MongoDB', icon: 'MongoDB.svg' },
+          { title: 'Express', icon: 'Express.svg' },
+          { title: 'Kafka', icon: 'Apache-Kafka.svg' }, // Added Kafka for message queueing.
+        ],
+      },
+      {
+        category: 'DevOps & Tools',
+        technologies: [
+          { title: 'Docker', icon: 'Docker.svg' },
+          { title: 'Kubernetes', icon: 'Kubernetes.svg' },
+          { title: 'Git', icon: 'Git.svg' },
+          { title: 'Vercel', icon: 'Vercel.svg' },
+          { title: 'Jenkins', icon: 'Jenkins.svg' },
+          { title: 'Travis CI', icon: 'Travis-CI.svg' },
+          { title: 'GitHub Actions', icon: 'GitHub-Actions.svg' },
+        ],
+      },
+      {
+        category: 'Cloud & Infrastructure',
+        technologies: [
+          { title: 'AWS', icon: 'AWS.svg' },
+          { title: 'Google Cloud', icon: 'Google-Cloud.svg' }, // Added Google Cloud for cloud diversity.
+          { title: 'Terraform', icon: 'HashiCorp-Terraform.svg' },
+        ],
+      },
+      {
+        category: 'Data Science & AI',
+        technologies: [
+          { title: 'Python', icon: 'Python.svg' },
+          { title: 'TensorFlow', icon: 'TensorFlow.svg' },
+          { title: 'PyTorch', icon: 'PyTorch.svg' },
+          { title: 'NumPy', icon: 'NumPy.svg' },
+          { title: 'Pandas', icon: 'Pandas.svg' },
+        ],
       },
     ],
   },

@@ -1,6 +1,7 @@
 /* eslint-disable react-dom/no-dangerously-set-innerhtml */
 import Education from '@/components/about/Education';
 import TableOfContents from '@/components/about/TableOfContents';
+import TechnicalSkills from '@/components/about/TechnicalSkills';
 import WorkExperience from '@/components/about/WorkExperience';
 
 import Scroll from '@/components/Animation/Scroll';
@@ -42,7 +43,7 @@ export default function About() {
     { title: about.intro.title, display: about.intro.display, items: [] },
     { title: about.work.title, display: about.work.display, items: about.work.experiences.map(exp => exp.company) },
     { title: about.studies.title, display: about.studies.display, items: about.studies.institutions.map(inst => inst.name) },
-    { title: about.technical.title, display: about.technical.display, items: about.technical.skills.map(skill => skill.title) },
+    { title: about.technical.title, display: about.technical.display, items: about.technical.skills.map(skill => skill.category) },
   ];
 
   return (
@@ -155,6 +156,17 @@ export default function About() {
               <div className="space-y-6">
                 {about.studies.institutions.map(institute => (
                   <Education key={`${institute.name}`} institution={institute} />
+                ))}
+              </div>
+            </section>
+          )}
+
+          {about.technical.display && (
+            <section id={about.technical.title} className="mt-10">
+              <h2 className="mb-4 text-4xl font-bold">{about.technical.title}</h2>
+              <div className="space-y-6">
+                {about.technical.skills.map(skill => (
+                  <TechnicalSkills key={`${skill.category}`} skill={skill} />
                 ))}
               </div>
             </section>
