@@ -19,7 +19,7 @@ export const BaseTemplate: React.FC<BaseTemplateProps> = (props) => {
           <div className="hidden md:block">
             {display.location && <span>{person.location}</span>}
           </div>
-          <div className="mx-auto flex size-full max-w-fit items-center justify-around rounded-lg bg-background px-4 shadow-lg drop-shadow-lg">
+          <div className="mx-auto flex size-full max-w-fit items-center justify-around rounded-lg border border-gray-200 bg-white/80 px-4 shadow-lg drop-shadow-lg backdrop-blur-md dark:border-gray-700 dark:bg-gray-800/60">
             <nav>
               <ul className="flex h-full flex-wrap items-center gap-x-5 text-lg font-medium">
                 {props.leftNav}
@@ -41,7 +41,7 @@ export const BaseTemplate: React.FC<BaseTemplateProps> = (props) => {
           </div>
         </header>
 
-        <main className="mx-10 pt-20 md:mx-36">{props.children}</main>
+        <main className="mx-2 pt-20 md:mx-36">{props.children}</main>
         <Footer />
       </div>
     </div>

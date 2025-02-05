@@ -72,7 +72,7 @@ export default function About() {
         {/* Left Column - Avatar, Location, Languages */}
 
         {about.avatar.display && (
-          <div className="sticky top-24 flex h-fit flex-col items-center space-y-4 md:col-span-1">
+          <div className="flex h-fit flex-col items-center space-y-4 md:sticky md:top-24 md:col-span-1">
             <Avatar className="size-48 border-2 border-gray-500">
               <AvatarImage
                 src="images/avatar_main.webp"
@@ -107,15 +107,13 @@ export default function About() {
         )}
 
         {/* Right Column - Name, Role, Social Links, Bio */}
-        <div className="flex flex-col text-center md:col-span-2 md:text-left">
-
+        <div className="flex flex-col md:col-span-2 md:text-left">
           {about.calendar.display && (
-            <Cal className="max-w-fit border-primary" />
+            <Cal className="mx-auto w-fit rounded-full border-primary text-lg md:mx-0 md:w-auto md:max-w-fit" />
           )}
-
           <section id={about.intro.title} className="mt-5">
-            <h1 className="text-7xl font-bold leading-none">{person.name}</h1>
-            <h2 className="mt-2 text-4xl font-medium leading-none text-muted-foreground">{person.role}</h2>
+            <h1 className="text-center text-4xl font-bold leading-none md:text-7xl">{person.name}</h1>
+            <h2 className="mt-4 text-center text-2xl font-medium leading-none text-muted-foreground md:text-4xl">{person.role}</h2>
 
             {/* Social Links */}
             {social.length > 0 && (
@@ -125,7 +123,7 @@ export default function About() {
                     <Button key={item.name} variant="outline" size="sm" asChild>
                       <Link href={item.link} className="flex items-center font-medium">
                         {item.icon}
-                        <span className="font-bold">{item.name}</span>
+                        <span className="hidden font-bold md:inline">{item.name}</span>
                       </Link>
                     </Button>
                   )
@@ -135,7 +133,7 @@ export default function About() {
 
             {/* Bio */}
             {about.intro.display && (
-              <p className="my-6 text-base font-medium text-foreground">{about.intro.description}</p>
+              <p className="my-6 text-lg  font-medium text-foreground">{about.intro.description}</p>
             )}
           </section>
 

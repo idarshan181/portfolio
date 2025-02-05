@@ -111,3 +111,13 @@
     background-color: #000000;
   }
 }
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1); /* Transparent white for the background */
+  backdrop-filter: blur(10px); /* Blur the background */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+  padding: 10px 20px; /* Space inside the div */
+}

@@ -9,25 +9,25 @@ type HeroProps = React.ComponentProps<'div'>;
 export default function Hero({ className = '', style, ...props }: HeroProps) {
   return (
     <div
-      className={`relative mt-10 flex h-[70vh] flex-col-reverse items-center md:mt-0 md:flex-row ${className}`}
+      className={`relative mt-10 flex h-[70vh] flex-col-reverse items-center md:mt-0 md:flex-row ${className} select-none`}
       style={style}
       {...props}
     >
       {/* Left Section */}
       <div className="flex-1 px-6 py-10 text-center md:text-left">
         {/* Headline */}
-        <h1 className="text-start text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl md:text-center">
+        <h1 className="text-start text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-6xl ">
           {home.headline}
         </h1>
 
         {/* Subline */}
-        <p className="mt-4 text-start text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        <p className="mt-4 text-start text-xl leading-relaxed text-gray-600 dark:text-gray-400">
           {home.subline}
         </p>
 
         {/* CTA Section */}
-        <div className="mt-8 flex flex-col items-center gap-4 md:flex-row md:items-start">
-          <Button asChild size="lg" variant="default" className="w-1/2 md:w-auto">
+        <div className="mt-8 flex  flex-row items-center gap-4 md:items-start">
+          <Button asChild size="lg" variant="default" className="w-1/2 text-foreground md:w-auto">
             <Link href="/about" className="flex items-center gap-2">
               {about.title}
             </Link>

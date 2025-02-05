@@ -26,26 +26,28 @@ export default function NavItem({ labels }: { labels: NavLabels }) {
     <>
       {[
         { href: '/', label: labels.home, icon: <LiaHomeSolid size={24} /> },
-        { href: '/about', label: labels.about, icon: <VscAccount size={16} /> },
-        { href: '/projects', label: labels.projects, icon: <GrProjects size={16} /> },
-        { href: '/hobbies', label: labels.hobbies, icon: <MdSpaceDashboard size={16} /> },
-        { href: '/contact', label: labels.contact, icon: <TiContacts size={16} /> },
+        { href: '/about', label: labels.about, icon: <VscAccount size={20} /> },
+        { href: '/projects', label: labels.projects, icon: <GrProjects size={20} /> },
+        { href: '/hobbies', label: labels.hobbies, icon: <MdSpaceDashboard size={24} /> },
+        { href: '/contact', label: labels.contact, icon: <TiContacts size={24} /> },
       ].map((item, index) => (
         <Fragment key={item.href}>
           <li
-            className={`rounded-lg px-3 py-2 ${pathname === item.href ? 'bg-accent text-accent-foreground' : 'text-foreground'
+            className={`rounded-lg px-3 py-2 ${pathname === item.href ? 'border border-primary bg-muted text-accent-foreground' : 'text-foreground'
             }`}
           >
             <Link
               href={item.href}
-              className="relative flex items-center gap-x-2 text-sm font-medium transition-colors hover:text-primary"
+              className="relative flex items-center justify-center gap-x-2 text-base font-medium transition-colors hover:text-primary"
             >
               {item.icon}
               {/* {index !== 0 ? item.label : ''} */}
-              <span className="hidden sm:inline">{item.label}</span>
-              {pathname === item.href && (
-                <span className="absolute -bottom-1 left-1/2 mt-1 block h-1 w-8 -translate-x-1/2 rounded-full bg-blue-500" />
-              )}
+              <span className="hidden sm:inline">
+                {item.label}
+              </span>
+              {/* {pathname === item.href && (
+                <span className="absolute -bottom-1 left-1/2 mt-1 block h-1 w-16 -translate-x-1/2 rounded-full bg-blue-500" />
+              )} */}
             </Link>
           </li>
           {index === 0 && (

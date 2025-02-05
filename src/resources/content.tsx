@@ -1,3 +1,4 @@
+import HandWave from '@/components/Animation/HandWave';
 import { FaGithub, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
 import { MdEmail } from 'react-icons/md';
 
@@ -61,13 +62,13 @@ const home = {
   description: `A showcase of my journey and work as a ${person.role}.`,
   headline: <>Full Stack Developer and Builder</>,
   subline: (
-    <span className="font-light text-foreground">
+    <div className="inline-block font-normal text-foreground">
       Hi, I’m
       {' '}
-      <span className="font-bold text-foreground">{person.name}</span>
-      {' '}
-      👋, a full stack developer building scalable systems and AI-powered solutions. Exploring the RAG hype—because even AI needs a fact-checker!
-    </span>
+      <div className="inline-block font-bold text-primary">{person.name}</div>
+      <HandWave />
+      , a full stack developer building scalable systems and AI-powered solutions. Exploring the RAG hype—because even AI needs a fact-checker!
+    </div>
   ),
 };
 
