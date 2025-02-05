@@ -21,9 +21,9 @@ export default function Hero({ className = '', style, ...props }: HeroProps) {
         </h1>
 
         {/* Subline */}
-        <p className="mt-4 text-start text-xl leading-relaxed text-gray-600 dark:text-gray-400">
+        <div role="heading" aria-level={2} className="mt-4 text-start text-xl leading-relaxed text-gray-600 dark:text-gray-400">
           {home.subline}
-        </p>
+        </div>
 
         {/* CTA Section */}
         <div className="mt-8 flex  flex-row items-center gap-4 md:items-start">

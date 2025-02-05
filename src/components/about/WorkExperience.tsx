@@ -16,7 +16,7 @@ type WorkExperienceProps = {
 export default function WorkExperience({ experience, isLast }: WorkExperienceProps) {
   return (
     <>
-      <Card className="border-none shadow-none drop-shadow-none">
+      <Card className="border-none bg-background shadow-none drop-shadow-none">
         <CardHeader className="flex flex-row items-center justify-between p-1">
           <div className="flex w-fit flex-col">
             <span className="text-lg font-bold">{experience.company}</span>

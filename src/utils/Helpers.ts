@@ -20,7 +20,8 @@ export const getBaseUrl = () => {
 };
 
 export const getI18nPath = (url: string, locale: string) => {
-  if (locale === routing.defaultLocale) {
+  const defaultLocale = routing.defaultLocale || 'en'; // Fallback to 'en' if defaultLocale is missing
+  if (locale === defaultLocale) {
     return url;
   }
 

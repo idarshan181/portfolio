@@ -65,7 +65,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
       {structure.filter(section => section.display).map(section => (
         <Card
           key={section.title}
-          className={`cursor-pointer border-none shadow-none drop-shadow-none hover:translate-x-3 ${
+          className={`cursor-pointer border-none bg-background shadow-none drop-shadow-none hover:translate-x-3 ${
             activeSection === section.title ? 'bg-muted text-foreground' : 'hover:bg-muted'
           }`}
           onClick={() => scrollTo(section.title)}

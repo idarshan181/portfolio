@@ -64,7 +64,7 @@ export default async function Index() {
 
       {/* Projects Section */}
       <div className="mx-auto max-w-5xl ">
-        <Card>
+        <Card className="">
           <CardHeader>
             <CardTitle>Featured Projects</CardTitle>
             <CardDescription>
