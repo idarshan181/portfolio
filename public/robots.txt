@@ -18,4 +18,4 @@ Disallow: /_next/*
 Disallow: /_vercel/*
 
 # Sitemap
-Sitemap: https://idarshan18.com/sitemap.xml
+Sitemap: https://www.idarshan18.com/sitemap.xml
