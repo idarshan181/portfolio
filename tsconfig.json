@@ -40,8 +40,10 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
-, "src/resources/content.tsx"  ],
+    ".next/types/**/*.ts",
+    "src/resources/content.tsx",
+    "src/utils/generateSitemap.js"
+  ],
   "exclude": [
     "node_modules"
   ]

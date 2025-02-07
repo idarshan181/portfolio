@@ -7,7 +7,7 @@
     "dev:next": "next dev",
     "dev": "run-p dev:*",
     "build": "next build",
-    "postbuild": "ts-node -e 'require(\"./src/utils/generateSitemap.js\").generateSitemap()'",
+    "postbuild": "node -e 'require(\"./src/utils/generateSitemap.js\").generateSitemap()'",
     "start": "next start",
     "build-stats": "cross-env ANALYZE=true npm run build",
     "clean": "rimraf .next out coverage",
