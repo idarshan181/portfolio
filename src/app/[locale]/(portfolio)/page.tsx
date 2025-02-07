@@ -1,7 +1,7 @@
 /* eslint-disable react-dom/no-dangerously-set-innerhtml */
 import Hero from '@/components/landing/Hero';
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { baseURL, home, person } from '@/resources';
+import { about, baseURL, home, person } from '@/resources';
 
 export async function generateMetadata() {
   const title = home.title;
@@ -30,6 +30,9 @@ export async function generateMetadata() {
       images: [ogImage],
     },
     metadataBase: new URL(`https://${baseURL}`),
+    verification: {
+      google: '2pu3aZP-s75gbnIcPzPHg69yQhWTlzppNcrGEcehsSg',
+    },
   };
 }
 
@@ -42,19 +45,26 @@ export default async function Index() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             '@context': 'https://schema.org',
-            '@type': 'WebPage',
+            '@type': 'Person',
             'name': home.title,
-            'description': home.description,
-            'url': `https://${baseURL}`,
-            'image': `${baseURL}/og?title=${encodeURIComponent(home.title)}`,
-            'publisher': {
-              '@type': 'Person',
-              'name': person.name,
-              'image': {
-                '@type': 'ImageObject',
-                'url': `${baseURL}${person.avatar}`,
-              },
+            'jobTitle': person.role,
+            'description': about.intro.description,
+            'url': `https://idarshan18.com`,
+            'image': '/images/avatar_main.webp',
+            'sameAs': [
+              'https://github.com/idarshan181',
+              'https://www.linkedin.com/in/idarshan18/',
+              'https://twitter.com/darshan18',
+            ],
+            'location': {
+              '@type': 'Place',
+              'name': person.location,
             },
+            'knowsLanguage': person.languages,
+            'alumniOf': about.studies.institutions.map(edu => ({
+              '@type': 'EducationalOrganization',
+              'name': edu.name,
+            })),
           }),
         }}
       />
