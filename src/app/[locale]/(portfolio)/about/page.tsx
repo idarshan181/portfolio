@@ -1,23 +1,29 @@
 /* eslint-disable react-dom/no-dangerously-set-innerhtml */
+import type { Metadata } from 'next';
 import Education from '@/components/about/Education';
 import TableOfContents from '@/components/about/TableOfContents';
 import TechnicalSkills from '@/components/about/TechnicalSkills';
+
 import WorkExperience from '@/components/about/WorkExperience';
-
 import Scroll from '@/components/Animation/Scroll';
-import Cal from '@/components/Cal';
 
+import Cal from '@/components/Cal';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { about, baseURL, person, social } from '@/resources';
+import { getBaseUrl } from '@/utils/Helpers';
 
 import Link from 'next/link';
 import { FaGlobeAmericas } from 'react-icons/fa';
 
-export async function generateMetadata() {
-  const title = about.title;
-  const description = about.description;
-  const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
+export async function generateMetadata(): Promise<Metadata> {
+  const baseURL = getBaseUrl();
+  const title = `About ${person.name} - ${person.role}`;
+  const description = `Learn about ${person.name}'s journey as a ${person.role}. ${`Darshan is a Full Stack Developer with expertise in crafting scalable
+        systems and seamless user experiences. His work spans backend architecture,
+        APIs, and modern frontend design.".slice(0, 150)`}`;
+
+  const ogImage = `${baseURL}/og?title=${encodeURIComponent(title)}`;
 
   return {
     title,
@@ -25,15 +31,53 @@ export async function generateMetadata() {
     openGraph: {
       title,
       description,
-      type: 'website',
-      url: `https://${baseURL}/about`,
-      images: [{ url: ogImage, alt: title }],
+      type: 'profile',
+      url: `${getBaseUrl()}/about`,
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
       images: [ogImage],
+      creator: '@idarshan18',
+    },
+    alternates: {
+      canonical: `${getBaseUrl()}/about`,
+    },
+    authors: [
+      {
+        name: person.name,
+        url: getBaseUrl(),
+      },
+    ],
+    keywords: [
+      person.name,
+      person.role,
+      'About',
+      'Portfolio',
+      'Developer',
+      'Software Engineer',
+      ...about.technical.skills.map(skill => skill.category),
+    ],
+    robots: {
+      index: true,
+      follow: true,
+      nocache: true,
+      googleBot: {
+        'index': true,
+        'follow': true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     },
   };
 }

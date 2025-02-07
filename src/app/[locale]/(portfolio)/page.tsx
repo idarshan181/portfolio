@@ -2,6 +2,7 @@
 import Hero from '@/components/landing/Hero';
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { about, baseURL, home, person } from '@/resources';
+import { getBaseUrl } from '@/utils/Helpers';
 
 export async function generateMetadata() {
   const title = home.title;
@@ -30,6 +31,9 @@ export async function generateMetadata() {
       images: [ogImage],
     },
     metadataBase: new URL(`https://${baseURL}`),
+    alternates: {
+      canonical: `${getBaseUrl()}/current-path`,
+    },
     verification: {
       google: '2pu3aZP-s75gbnIcPzPHg69yQhWTlzppNcrGEcehsSg',
     },
