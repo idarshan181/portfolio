@@ -1,53 +1,51 @@
-// import type { NextRequest } from 'next/server';
-// import createMiddleware from 'next-intl/middleware';
-// import { routing } from './libs/i18nNavigation';
-
-// const intlMiddleware = createMiddleware(routing);
-
-// export default function middleware(
-//   request: NextRequest,
-// ) {
-//   return intlMiddleware(request);
-// }
-
-// export const config = {
-//   matcher: [
-//     // Skip Next.js internals and all static files, unless found in search params
-//     '/((?!_next|monitoring|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
-//     // Always run for API routes
-//     '/(api|trpc)(.*)',
-//   ],
-// };
-
 import type { NextRequest } from 'next/server';
-import { NextResponse } from 'next/server';
+import createMiddleware from 'next-intl/middleware';
+import { routing } from './libs/i18nNavigation';
 
-export function middleware(request: NextRequest) {
-  const userAgent = request.headers.get('user-agent')?.toLowerCase() || '';
+const intlMiddleware = createMiddleware(routing);
 
-  // Allow search engine crawlers like Googlebot
-  if (userAgent.includes('bot') || userAgent.includes('googlebot')) {
-    return NextResponse.next();
-  }
-
-  // Allow direct access to sitemap.xml and robots.txt
-  const pathname = request.nextUrl.pathname;
-  if (pathname === '/sitemap.xml' || pathname === '/robots.txt') {
-    return NextResponse.next();
-  }
-
-  // Your existing middleware logic
-  return NextResponse.next();
+export default function middleware(
+  request: NextRequest,
+) {
+  return intlMiddleware(request);
 }
 
 export const config = {
   matcher: [
-    /*
-     * Match all request paths except:
-     * - /api/ routes
-     * - Next.js internals
-     * - Public static files
-     */
-    '/((?!api|_next|_static|_vercel|[\\w-]+\\.\\w+|sitemap.xml|robots.txt).*)',
+    // Skip Next.js internals and all static files, unless found in search params
+    '/((?!_next|monitoring|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
+    // Always run for API routes
+    '/(api|trpc)(.*)',
   ],
 };
+
+// import type { NextRequest } from 'next/server';
+// import { NextResponse } from 'next/server';
+
+// export function middleware(request: NextRequest) {
+//   // Remove or adjust rate limiting for crawlers
+//   const isBot = request.headers.get('user-agent')?.toLowerCase().includes('bot');
+//   const isGoogleBot = request.headers.get('user-agent')?.toLowerCase().includes('googlebot');
+
+//   if (isBot || isGoogleBot) {
+//     // Allow crawlers to access the site
+//     return NextResponse.next();
+//   }
+
+//   // Your existing middleware logic
+//   return NextResponse.next();
+// }
+
+// export const config = {
+//   matcher: [
+//     /*
+//      * Match all request paths except:
+//      * 1. /api/ routes
+//      * 2. /_next/ (Next.js internals)
+//      * 3. /_static (inside /public)
+//      * 4. /_vercel (Vercel internals)
+//      * 5. Static files (e.g. /favicon.ico, /sitemap.xml, /robots.txt)
+//      */
+//     '/((?!api|_next|_static|_vercel|[\\w-]+\\.\\w+).*)',
+//   ],
+// };
