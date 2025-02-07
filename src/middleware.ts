@@ -23,12 +23,16 @@ import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
 export function middleware(request: NextRequest) {
-  // Remove or adjust rate limiting for crawlers
-  const isBot = request.headers.get('user-agent')?.toLowerCase().includes('bot');
-  const isGoogleBot = request.headers.get('user-agent')?.toLowerCase().includes('googlebot');
+  const userAgent = request.headers.get('user-agent')?.toLowerCase() || '';
 
-  if (isBot || isGoogleBot) {
-    // Allow crawlers to access the site
+  // Allow search engine crawlers like Googlebot
+  if (userAgent.includes('bot') || userAgent.includes('googlebot')) {
+    return NextResponse.next();
+  }
+
+  // Allow direct access to sitemap.xml and robots.txt
+  const pathname = request.nextUrl.pathname;
+  if (pathname === '/sitemap.xml' || pathname === '/robots.txt') {
     return NextResponse.next();
   }
 
@@ -40,12 +44,10 @@ export const config = {
   matcher: [
     /*
      * Match all request paths except:
-     * 1. /api/ routes
-     * 2. /_next/ (Next.js internals)
-     * 3. /_static (inside /public)
-     * 4. /_vercel (Vercel internals)
-     * 5. Static files (e.g. /favicon.ico, /sitemap.xml, /robots.txt)
+     * - /api/ routes
+     * - Next.js internals
+     * - Public static files
      */
-    '/((?!api|_next|_static|_vercel|[\\w-]+\\.\\w+).*)',
+    '/((?!api|_next|_static|_vercel|[\\w-]+\\.\\w+|sitemap.xml|robots.txt).*)',
   ],
 };

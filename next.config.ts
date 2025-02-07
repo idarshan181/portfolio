@@ -12,6 +12,10 @@ const nextConfig: NextConfig = {
         source: '/studio/:path*',
         destination: '/studio/:path*',
       },
+      {
+        source: '/sitemap.xml',
+        destination: '/api/sitemap', // Adjust this based on your dynamic sitemap generation route
+      },
     ];
   },
 
@@ -43,19 +47,13 @@ const nextConfig: NextConfig = {
       {
         source: '/sitemap.xml',
         headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=86400, must-revalidate',
-          },
+          { key: 'Cache-Control', value: 'public, max-age=86400, s-maxage=86400, stale-while-revalidate' },
         ],
       },
       {
         source: '/robots.txt',
         headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=86400, must-revalidate',
-          },
+          { key: 'Cache-Control', value: 'public, max-age=86400, s-maxage=86400, stale-while-revalidate' },
         ],
       },
     ];
