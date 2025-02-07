@@ -1,16 +1,12 @@
 import type { Metadata } from 'next';
 import arcjet, { detectBot, request } from '@/libs/Arcjet';
 import { Env } from '@/libs/Env';
-import { routing } from '@/libs/i18nNavigation';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, setRequestLocale } from 'next-intl/server';
 
 import { ThemeProvider } from 'next-themes';
 
 import { Inter } from 'next/font/google';
-import { notFound } from 'next/navigation';
 
 import '@/styles/global.css';
 
@@ -89,10 +85,6 @@ const grotesk = Inter({
   fallback: ['Arial', 'Helvetica', 'sans-serif'], // Fallbacks
 });
 
-export function generateStaticParams() {
-  return routing.locales.map(locale => ({ locale }));
-}
-
 // Improve security with Arcjet
 const aj = arcjet.withRule(
   detectBot({
@@ -109,16 +101,7 @@ const aj = arcjet.withRule(
 
 export default async function RootLayout(props: {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await props.params;
-
-  if (!routing.locales.includes(locale)) {
-    notFound();
-  }
-
-  setRequestLocale(locale);
-
   // Verify the request with Arcjet
   if (Env.ARCJET_KEY) {
     const req = await request();
@@ -136,13 +119,12 @@ export default async function RootLayout(props: {
   }
 
   // Using internationalization in Client Components
-  const messages = await getMessages();
 
   // The `suppressHydrationWarning` attribute in <body> is used to prevent hydration errors caused by Sentry Overlay,
   // which dynamically adds a `style` attribute to the body tag.
 
   return (
-    <html lang={locale} className={grotesk.className}>
+    <html lang="en" className={grotesk.className}>
       <body suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
@@ -150,14 +132,10 @@ export default async function RootLayout(props: {
           enableSystem
           disableTransitionOnChange
         >
-          <NextIntlClientProvider
-            locale={locale}
-            messages={messages}
-          >
-            {props.children}
 
-            {/* <DemoBadge /> */}
-          </NextIntlClientProvider>
+          {props.children}
+
+          {/* <DemoBadge /> */}
           <Analytics />
           <SpeedInsights />
         </ThemeProvider>

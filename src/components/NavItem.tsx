@@ -1,8 +1,7 @@
 'use client';
 
-import { usePathname } from '@/libs/i18nNavigation';
-
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Fragment } from 'react';
 import { GrProjects } from 'react-icons/gr';
 import { LiaHomeSolid } from 'react-icons/lia';
