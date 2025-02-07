@@ -42,7 +42,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/resources/content.tsx",
-    "src/utils/generateSitemap.js"
+    "src/utils/generateSitemap.ts"
   ],
   "exclude": [
     "node_modules"
