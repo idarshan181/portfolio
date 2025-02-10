@@ -6,18 +6,18 @@ const withNextIntl = createNextIntlPlugin('./src/libs/i18n.ts');
 
 const nextConfig: NextConfig = {
   serverExternalPackages: ['@electric-sql/pglite'],
-  async rewrites() {
-    return [
-      {
-        source: '/studio/:path*',
-        destination: '/studio/:path*',
-      },
-      {
-        source: '/sitemap.xml',
-        destination: '/api/sitemap', // Adjust this based on your dynamic sitemap generation route
-      },
-    ];
-  },
+  // async rewrites() {
+  //   return [
+  //     {
+  //       source: '/studio/:path*',
+  //       destination: '/studio/:path*',
+  //     },
+  //     {
+  //       source: '/sitemap.xml',
+  //       destination: '/api/sitemap', // Adjust this based on your dynamic sitemap generation route
+  //     },
+  //   ];
+  // },
 
   images: {
     remotePatterns: [

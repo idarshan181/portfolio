@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     template: '%s | Darshan Patel',
   },
   description: 'Full Stack Developer specializing in React, Next.js, and TypeScript. Building scalable web applications with modern technologies.',
-  keywords: ['Darshan Patel', 'Full Stack Developer', 'React Developer', 'Next.js', 'TypeScript'],
+  keywords: ['Darshan Patel', 'Full Stack Developer', 'React Developer', 'Next.js', 'TypeScript', 'Darshan Patel MUN', 'Darshan Patel Memorial University', 'Darshan Patel Software Developer', 'Darshan Patel PlayPower Labs', 'Darshan Patel Full Stack Developer'],
   authors: [{ name: 'Darshan Patel' }],
   creator: 'Darshan Patel',
   openGraph: {
