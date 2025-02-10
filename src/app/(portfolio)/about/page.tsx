@@ -158,8 +158,8 @@ export default function About() {
             <Cal className="mx-auto w-fit rounded-full border-primary text-lg md:mx-0 md:w-auto md:max-w-fit" />
           )}
           <section id={about.intro.title} className="mt-5">
-            <h1 className="text-center text-4xl font-bold leading-none md:text-7xl">{person.name}</h1>
-            <h2 className="mt-4 text-center text-2xl font-medium leading-none text-muted-foreground md:text-4xl">{person.role}</h2>
+            <h1 className="text-center text-4xl font-bold leading-none md:text-start md:text-7xl">{person.name}</h1>
+            <h2 className="mt-4 text-center text-2xl font-medium leading-none text-muted-foreground md:text-start md:text-4xl">{person.role}</h2>
 
             {/* Social Links */}
             {social.length > 0 && (
