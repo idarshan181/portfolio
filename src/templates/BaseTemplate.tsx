@@ -26,7 +26,7 @@ export const BaseTemplate: React.FC<BaseTemplateProps> = (props) => {
               </ul>
             </nav>
             <nav>
-              <ul className="flex h-full  flex-wrap items-center gap-x-2 text-lg font-medium">
+              <ul className="flex h-full  flex-wrap items-center text-lg font-medium md:gap-x-2">
                 {props.centerNav}
               </ul>
             </nav>

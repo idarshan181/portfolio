@@ -206,7 +206,7 @@ export default function About() {
           )}
 
           {about.technical.display && (
-            <section id={about.technical.title} className="mt-10">
+            <section id="Technical Skills" className="mt-10">
               <h2 className="mb-4 text-4xl font-bold">{about.technical.title}</h2>
               <div className="space-y-6">
                 {about.technical.skills.map(skill => (

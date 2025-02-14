@@ -37,7 +37,7 @@ export default function NavItem({ labels }: { labels: NavLabels }) {
           >
             <Link
               href={item.href}
-              className="relative flex items-center justify-center gap-x-2 text-base font-medium transition-colors hover:text-primary"
+              className="relative flex items-center justify-center text-base font-medium transition-colors hover:text-primary"
             >
               {item.icon}
               {/* {index !== 0 ? item.label : ''} */}
