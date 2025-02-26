@@ -9,12 +9,12 @@ import PhoneInputWithCountry from 'react-phone-number-input/react-hook-form';
 
 import { z } from 'zod';
 
-import { Button } from './ui/button';
-import { Card, CardContent } from './ui/card';
-import { Checkbox } from './ui/checkbox';
-import { Input } from './ui/input';
-import { Label } from './ui/label';
-import { Textarea } from './ui/textarea';
+import { Button } from '../ui/button';
+import { Card, CardContent } from '../ui/card';
+import { Checkbox } from '../ui/checkbox';
+import { Input } from '../ui/input';
+import { Label } from '../ui/label';
+import { Textarea } from '../ui/textarea';
 import 'react-phone-number-input/style.css';
 
 const contactFormSchema = z.object({

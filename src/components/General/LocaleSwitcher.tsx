@@ -3,7 +3,7 @@
 import { routing, usePathname } from '@/libs/i18nNavigation';
 import { useLocale } from 'next-intl';
 import { useRouter } from 'next/navigation';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 
 export const LocaleSwitcher = () => {
   const router = useRouter();

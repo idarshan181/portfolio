@@ -1,5 +1,5 @@
-import Cal from '@/components/Cal';
-import ContactForm from '@/components/ContactForm';
+import Cal from '@/components/General/Cal';
+import ContactForm from '@/components/General/ContactForm';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 type IContactProps = {

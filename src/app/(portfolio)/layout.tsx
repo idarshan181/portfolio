@@ -1,5 +1,5 @@
-import { ClientThemeSwitcher } from '@/components/ClientThemeSwitcher';
-import NavItem from '@/components/NavItem';
+import { ClientThemeSwitcher } from '@/components/General/ClientThemeSwitcher';
+import NavItem from '@/components/General/NavItem';
 import { BaseTemplate } from '@/templates/BaseTemplate';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 

@@ -8,7 +8,7 @@ import { LiaHomeSolid } from 'react-icons/lia';
 import { MdSpaceDashboard } from 'react-icons/md';
 import { TiContacts } from 'react-icons/ti';
 import { VscAccount } from 'react-icons/vsc';
-import { Separator } from './ui/separator';
+import { Separator } from '../ui/separator';
 
 type NavLabels = {
   home: string;

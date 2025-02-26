@@ -39,7 +39,7 @@ export default antfu(
       css: true,
     },
 
-    ignores: ['migrations/**/*', 'next-env.d.ts', 'src/components/ui/*'],
+    ignores: ['migrations/**/*', 'next-env.d.ts', 'src/components/ui/*', 'node_modules/**/*'],
   },
   ...tailwind.configs['flat/recommended'],
   jsxA11y.flatConfigs.recommended,

@@ -7,7 +7,7 @@ import TechnicalSkills from '@/components/about/TechnicalSkills';
 import WorkExperience from '@/components/about/WorkExperience';
 import Scroll from '@/components/Animation/Scroll';
 
-import Cal from '@/components/Cal';
+import Cal from '@/components/General/Cal';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { about, baseURL, person, social } from '@/resources';

@@ -1,5 +1,5 @@
-import Footer from '@/components/Footer';
-import TimeDisplay from '@/components/TimeDisplay';
+import Footer from '@/components/General/Footer';
+import TimeDisplay from '@/components/General/TimeDisplay';
 import { display, person } from '@/resources';
 
 type BaseTemplateProps = {

@@ -4,7 +4,7 @@ import { getCalApi } from '@calcom/embed-react';
 import { useEffect } from 'react';
 import { FaChevronRight } from 'react-icons/fa6';
 import { HiOutlineCalendarDays } from 'react-icons/hi2';
-import { Button } from './ui/button';
+import { Button } from '../ui/button';
 
 type CalProps = React.ComponentProps<'button'>;
 
