@@ -1,5 +1,6 @@
 /* eslint-disable react-dom/no-dangerously-set-innerhtml */
 import Hero from '@/components/landing/Hero';
+import { ProjectsGrid } from '@/components/Project/ProjectGrid';
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { about, baseURL, home, person } from '@/resources';
 import { getBaseUrl } from '@/utils/Helpers';
@@ -78,15 +79,15 @@ export default async function Index() {
 
       {/* Projects Section */}
       <div className="mx-auto max-w-5xl ">
-        <Card className="">
+        <Card className="mb-5">
           <CardHeader>
             <CardTitle>Featured Projects</CardTitle>
             <CardDescription>
               Explore some of my best work, built using modern tools and technologies.
             </CardDescription>
           </CardHeader>
-          {/* <Projects range={[1, 3]} /> */}
         </Card>
+        <ProjectsGrid featuredOnly />
       </div>
     </div>
   );

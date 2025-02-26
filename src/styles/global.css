@@ -123,3 +123,12 @@
   border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
   padding: 10px 20px; /* Space inside the div */
 }
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

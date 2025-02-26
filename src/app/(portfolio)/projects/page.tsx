@@ -1,53 +1,96 @@
-import { getTranslations, setRequestLocale } from 'next-intl/server';
+/* eslint-disable react-dom/no-dangerously-set-innerhtml */
+import type { Metadata } from 'next';
+import { ProjectsGrid } from '@/components/Project/ProjectGrid';
+import { about, baseURL, person, social } from '@/resources';
+import { getBaseUrl } from '@/utils/Helpers';
 
-type IAboutProps = {
-  params: Promise<{ slug: string; locale: string }>;
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const baseURL = getBaseUrl();
+  const title = `About ${person.name} - ${person.role}`;
+  const description = `Learn about ${person.name}'s journey as a ${person.role}. ${`Darshan is a Full Stack Developer with expertise in crafting scalable
+        systems and seamless user experiences. His work spans backend architecture,
+        APIs, and modern frontend design.".slice(0, 150)`}`;
 
-export async function generateMetadata(props: IAboutProps) {
-  const { locale } = await props.params;
-  const t = await getTranslations({
-    locale,
-    namespace: 'About',
-  });
+  const ogImage = `${baseURL}/og?title=${encodeURIComponent(title)}`;
 
   return {
-    title: t('meta_title'),
-    description: t('meta_description'),
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: 'profile',
+      url: `${getBaseUrl()}/about`,
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [ogImage],
+      creator: '@idarshan18',
+    },
+    alternates: {
+      canonical: `${getBaseUrl()}/about`,
+    },
+    authors: [
+      {
+        name: person.name,
+        url: getBaseUrl(),
+      },
+    ],
+    keywords: [
+      person.name,
+      person.role,
+      'About',
+      'Portfolio',
+      'Developer',
+      'Software Engineer',
+      ...about.technical.skills.map(skill => skill.category),
+    ],
+    robots: {
+      index: true,
+      follow: true,
+      nocache: true,
+      googleBot: {
+        'index': true,
+        'follow': true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
   };
 }
 
-export default async function About(props: IAboutProps) {
-  const { locale } = await props.params;
-  setRequestLocale(locale);
-  const t = await getTranslations({
-    locale,
-    namespace: 'About',
-  });
-
+export default function ProjectPage() {
   return (
     <>
-      <p>{t('about_paragraph')}</p>
-
-      {/* <div className="mt-2 text-center text-sm">
-        {`${t('translation_powered_by')} `}
-        <a
-          className="text-blue-700 hover:border-b-2 hover:border-blue-700"
-          href="https://l.crowdin.com/next-js"
-        >
-          Crowdin
-        </a>
-      </div>
-
-      <Link href="https://l.crowdin.com/next-js">
-        <Image
-          className="mx-auto mt-2"
-          src="/assets/images/crowdin-dark.png"
-          alt="Crowdin Translation Management System"
-          width={128}
-          height={26}
-        />
-      </Link> */}
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Person',
+            'name': person.name,
+            'jobTitle': person.role,
+            'description': about.intro.description,
+            'url': `https://${baseURL}/about`,
+            'image': `${baseURL}/images/${person.avatar}`,
+            'sameAs': social.filter(item => item.link && !item.link.startsWith('mailto:')).map(item => item.link),
+            'worksFor': { '@type': 'Organization', 'name': about.work.experiences[0].company || '' },
+          }),
+        }}
+      />
+      <ProjectsGrid />
     </>
   );
-};
+}
