@@ -1,4 +1,5 @@
 import Image from 'next/image';
+
 import { Badge } from '../ui/badge';
 
 type TechnologyProps = {
@@ -8,7 +9,7 @@ type TechnologyProps = {
 type SkillProps = {
   skill: {
     category: string;
-    technologies: TechnologyProps[] ;
+    technologies: TechnologyProps[];
   };
 };
 
@@ -28,7 +29,17 @@ export default function TechnicalSkills({ skill }: SkillProps) {
               width={20}
               height={20}
               className={`mr-2 ${
-                ['Next.js', 'Vercel', 'Kafka', 'Pandas', 'AWS', 'Express', 'Java'].includes(technology.title) ? 'dark:invert' : ''
+                [
+                  'Next.js',
+                  'Vercel',
+                  'Kafka',
+                  'Pandas',
+                  'AWS',
+                  'Express',
+                  'Java',
+                ].includes(technology.title)
+                  ? 'dark:invert'
+                  : ''
               }`}
             />
             {technology.title}
