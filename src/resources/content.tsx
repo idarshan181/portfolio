@@ -1,6 +1,6 @@
 import HandWave from '@/components/Animation/HandWave';
-import { FaGithub, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
-import { MdEmail } from 'react-icons/md';
+
+import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
 
 const person = {
   firstName: 'Darshan',
@@ -36,22 +36,22 @@ const newsletter = {
 const social = [
   {
     name: 'GitHub',
-    icon: <FaGithub size={24} />,
+    icon: <Github size={24} />,
     link: 'https://github.com/idarshan181',
   },
   {
     name: 'LinkedIn',
-    icon: <FaLinkedin size={24} />,
+    icon: <Linkedin size={24} />,
     link: 'https://www.linkedin.com/in/idarshan18/',
   },
   {
     name: 'X',
-    icon: <FaXTwitter size={24} />,
+    icon: <Twitter size={24} />,
     link: 'https://twitter.com/darshan18',
   },
   {
     name: 'Email',
-    icon: <MdEmail size={24} />,
+    icon: <Mail size={24} />,
     link: 'mailto:work.idarshan18@gmail.com',
   },
 ];
@@ -144,21 +144,7 @@ const about = {
   },
   technical: {
     display: true,
-    title: 'Technical Skills',
-    // skills: [
-    //   {
-    //     title: 'Next.js',
-    //     description: <>Building scalable, server-rendered applications.</>,
-    //   },
-    //   {
-    //     title: 'Supabase',
-    //     description: <>Leveraging modern databases for real-time systems.</>,
-    //   },
-    //   {
-    //     title: 'Shadcn',
-    //     description: <>Creating intuitive UI components with Shadcn.</>,
-    //   },
-    // ],
+    title: 'Technical',
     skills: [
       {
         category: 'Programming Languages',

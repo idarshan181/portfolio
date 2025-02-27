@@ -1,50 +1,8 @@
-import { useTranslations } from 'next-intl';
-import { Button } from '../ui/button';
-
 type ContactBannerProps = React.ComponentProps<'div'>;
 export default function ContactBanner({ className = '', style, ...props }: ContactBannerProps) {
-  const t = useTranslations('Hero');
   // bg-gradient-to-br
   return (
     <div className={`relative mx-10 rounded-lg bg-gradient-to-br from-[#007f4e] to-[#00b86b] p-10 md:mx-20 ${className}`} style={style} {...props}>
-      {/* Grid Overlay */}
-      {/* <div
-        className="pointer-events-none absolute inset-0 rounded-lg"
-        style={{
-          backgroundImage: `
-        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.05) 0px, rgba(255, 255, 255, 0.05) 1px, transparent 1px, transparent 20px),
-        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0px, rgba(255, 255, 255, 0.05) 1px, transparent 1px, transparent 20px)
-      `,
-          opacity: 0.6, // Adjust overall grid visibility
-          zIndex: 1,
-        }}
-      /> */}
-
-      {/* Hexagonal Pattern */}
-      {/* <div
-        className="pointer-events-none absolute inset-0 rounded-lg"
-        style={{
-          backgroundImage: `
-        repeating-linear-gradient(
-          0deg,
-          transparent,
-          transparent 15px,
-          rgba(255, 255, 255, 0.1) 15px,
-          rgba(255, 255, 255, 0.1) 30px
-        ),
-        repeating-linear-gradient(
-          90deg,
-          transparent,
-          transparent 15px,
-          rgba(255, 255, 255, 0.1) 15px,
-          rgba(255, 255, 255, 0.1) 30px
-        )
-      `,
-          backgroundSize: '100px 60px',
-          backgroundPosition: 'center',
-          opacity: 0.2,
-        }}
-      /> */}
 
       {/* Wave SVG */}
       <svg
@@ -66,30 +24,6 @@ export default function ContactBanner({ className = '', style, ...props }: Conta
         </path>
       </svg>
 
-      <div className="z-20 w-full gap-y-16">
-        <div className="m-0 mb-6 flex flex-col gap-y-4 p-0">
-          <h1 className="text-2xl font-medium tracking-tight text-white md:text-6xl">
-            {t('contact_banner_title')}
-          </h1>
-          <h2 className="text-lg font-medium tracking-tight text-white md:text-4xl">
-            {t('contact_banner_subtitle')}
-          </h2>
-          {/* <p className="max-w-2xl text-lg font-medium text-white">We love partnering with companies developing innovative AI products by providing the most customizable model deployment with the lowest latency.</p> */}
-        </div>
-        <div className="flex w-full flex-col justify-center gap-y-4 md:h-full md:flex-row md:items-center md:justify-start md:gap-x-8">
-          <Button className="group flex h-12 w-full max-w-56 justify-between text-base" aria-label={t('ctaPrimary')}>
-            {t('ctaPrimary')}
-            <span className="ml-2 inline-block no-underline transition-transform duration-300 group-hover:translate-x-2 ">
-              →
-            </span>
-          </Button>
-          <Button variant="outline" className="flex h-12 w-full max-w-56 flex-row justify-start bg-transparent text-base text-white" aria-label={t('ctaSecondary')}>
-            {' '}
-            {t('ctaSecondary')}
-            {' '}
-          </Button>
-        </div>
-      </div>
     </div>
 
   );

@@ -31,9 +31,9 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
         }
       },
       {
-        root: null, // Observe the entire viewport
-        rootMargin: '-30% 0px -30% 0px', // Highlight when the section is roughly in the middle of the viewport
-        threshold: [0.25, 0.5, 0.75, 1.0], // Smooth transitions between sections
+        root: null, // viewport
+        rootMargin: '-20% 0px -60% 0px', // Adjust these values
+        threshold: [0.2, 0.4, 0.6, 0.8, 1.0],
       },
     );
 

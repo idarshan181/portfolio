@@ -34,7 +34,7 @@ export const projects: Project[] = [
     description:
       'A smart financial management application to track income, expenses, and spending habits with real-time insights and categorized analysis.',
     image: '/images/projects/Expense-Tracker-MUN-light.webp',
-    tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma', 'Shadcn', 'NextAuth'],
+    tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma', 'ShadCN', 'NextAuth'],
     github: 'https://github.com/idarshan181/ExpenseTracker-MUN',
     demo: 'https://expense-tracker-mun.vercel.app',
     featured: true,
@@ -45,7 +45,7 @@ export const projects: Project[] = [
     description:
       'An AI-powered RAG (Retrieval-Augmented Generation) system that enables intelligent document retrieval and answering tax law-related queries using LLMs and Weaviate.',
     image: '/images/projects/cognitive-search-backend.webp', // Replace with an actual hosted image
-    tags: ['LLM', 'Weaviate', 'FastAPI', 'Python', 'Docker', 'RAG'],
+    tags: ['LLM', 'Weaviate', 'FastAPI', 'Python', 'Docker', 'RAG', 'ML'],
     // github: 'https://github.com/idarshan181/cognitive-search-backend', // Replace with actual repo if public
     demo: 'https://cognitive-marketing-website.vercel.app/',
     featured: false,
@@ -57,7 +57,7 @@ export const projects: Project[] = [
     description:
       'A FastAPI-based server for secure video processing, including automated face blurring, hand landmark detection, and private video uploads. Uses OpenCV, YOLO, and AI-based detection to ensure privacy and security.',
     image: '/images/projects/cognitive-search-backend.webp',
-    tags: ['FastAPI', 'OpenCV', 'YOLO', 'Python', 'Docker', 'Hand Tracking'],
+    tags: ['FastAPI', 'ML', 'OpenCV', 'YOLO', 'Python', 'Docker', 'Hand Tracking'],
     github: 'https://github.com/idarshan181/faceblur-server-fastapi',
     demo: '',
     featured: true,

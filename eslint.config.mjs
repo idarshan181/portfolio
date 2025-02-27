@@ -1,3 +1,17 @@
+// import globals from "globals";
+// import pluginJs from "@eslint/js";
+// import tseslint from "typescript-eslint";
+// import pluginReact from "eslint-plugin-react";
+
+// /** @type {import('eslint').Linter.Config[]} */
+// export default [
+//   {files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"]},
+//   {languageOptions: { globals: globals.browser }},
+//   pluginJs.configs.recommended,
+//   ...tseslint.configs.recommended,
+//   pluginReact.configs.flat.recommended,
+// ];
+
 // import { dirname } from "path";
 // import { fileURLToPath } from "url";
 // import { FlatCompat } from "@eslint/eslintrc";
@@ -20,7 +34,7 @@ import nextPlugin from '@next/eslint-plugin-next';
 import jestDom from 'eslint-plugin-jest-dom';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import playwright from 'eslint-plugin-playwright';
-import tailwind from 'eslint-plugin-tailwindcss';
+// import tailwind from 'eslint-plugin-tailwindcss';
 import testingLibrary from 'eslint-plugin-testing-library';
 
 export default antfu(
@@ -39,9 +53,9 @@ export default antfu(
       css: true,
     },
 
-    ignores: ['migrations/**/*', 'next-env.d.ts', 'src/components/ui/*', 'node_modules/**/*'],
+    ignores: ['migrations/**/*', 'next-env.d.ts', 'src/components/ui/*', '.next/**/*'],
   },
-  ...tailwind.configs['flat/recommended'],
+  // ...tailwind.configs['flat/recommended'],
   jsxA11y.flatConfigs.recommended,
   {
     plugins: {
@@ -65,12 +79,13 @@ export default antfu(
     rules: {
       'antfu/no-top-level-await': 'off', // Allow top-level await
       'style/brace-style': ['error', '1tbs'], // Use the default brace style
-      'ts/consistent-type-definitions': ['error', 'type'], // Use `type` instead of `interface`
+      'ts/consistent-type-definitions': 'off', // Use `type` instead of `interface`
       'react/prefer-destructuring-assignment': 'off', // Vscode doesn't support automatically destructuring, it's a pain to add a new variable
       'node/prefer-global/process': 'off', // Allow using `process.env`
       'test/padding-around-all': 'error', // Add padding in test files
       'test/prefer-lowercase-title': 'off', // Allow using uppercase titles in test titles
       'react/require-default-props': 'off',
+      '@typescript-eslint/consistent-type-imports': 'off',
 
       // 'antfu/no-top-level-await': 'off', // Allow top-level await
       // 'style/brace-style': ['error', '1tbs'], // Use the default brace style
@@ -89,4 +104,5 @@ export default antfu(
 
     },
   },
+
 );

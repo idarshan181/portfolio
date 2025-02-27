@@ -1,15 +1,9 @@
-import Footer from '@/components/General/Footer';
-import TimeDisplay from '@/components/General/TimeDisplay';
 import { display, person } from '@/resources';
+import NavItems from './NavItems';
+import { ThemeToggle } from './ThemeToggle';
+import TimeDisplay from './TimeDisplay';
 
-type BaseTemplateProps = {
-  leftNav: React.ReactNode;
-  rightNav?: React.ReactNode;
-  centerNav?: React.ReactNode;
-  children: React.ReactNode;
-};
-
-export const BaseTemplate: React.FC<BaseTemplateProps> = (props) => {
+const Navbar: React.FC = () => {
   // const t = useTranslations('BaseTemplate');
 
   return (
@@ -20,19 +14,21 @@ export const BaseTemplate: React.FC<BaseTemplateProps> = (props) => {
             {display.location && <span>{person.location}</span>}
           </div>
           <div className="mx-auto flex size-full max-w-fit items-center justify-around rounded-lg border border-gray-200 bg-background/80 px-4 shadow-lg drop-shadow-lg backdrop-blur-md dark:border-gray-700 dark:bg-gray-800/60">
-            <nav>
+            {/* <nav>
               <ul className="flex h-full flex-wrap items-center gap-x-5 text-lg font-medium">
                 {props.leftNav}
               </ul>
-            </nav>
+            </nav> */}
             <nav>
               <ul className="flex h-full  flex-wrap items-center text-lg font-medium md:gap-x-2">
-                {props.centerNav}
+                <NavItems />
               </ul>
             </nav>
             <nav>
               <ul className="flex h-full flex-wrap items-center gap-x-2 text-lg font-medium ">
-                {props.rightNav}
+                <li className="">
+                  <ThemeToggle />
+                </li>
               </ul>
             </nav>
           </div>
@@ -40,10 +36,9 @@ export const BaseTemplate: React.FC<BaseTemplateProps> = (props) => {
             {display.time && <TimeDisplay timeZone={person.timezone} />}
           </div>
         </header>
-
-        <main className="mx-2 pt-20 md:mx-36">{props.children}</main>
-        <Footer />
       </div>
     </div>
   );
 };
+
+export default Navbar;

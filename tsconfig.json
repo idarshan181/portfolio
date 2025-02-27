@@ -8,7 +8,6 @@
       "dom.iterable",
       "esnext"
     ],
-    "baseUrl": ".",
     "module": "esnext",
     "moduleResolution": "bundler",
     "paths": {
@@ -20,10 +19,6 @@
       ]
     },
     "resolveJsonModule": true,
-    // Load types
-    "types": [
-      "vitest/globals"
-    ],
     "allowJs": true,
     "strict": true,
     "noEmit": true,
@@ -40,9 +35,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts",
-    "src/resources/content.tsx",
-    "src/utils/generateSitemap.ts"
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

@@ -1,26 +1,28 @@
 import type { NextConfig } from 'next';
-import { withSentryConfig } from '@sentry/nextjs';
-import createNextIntlPlugin from 'next-intl/plugin';
 
-const withNextIntl = createNextIntlPlugin('./src/libs/i18n.ts');
+import { withSentryConfig } from '@sentry/nextjs';
 
 const nextConfig: NextConfig = {
-  serverExternalPackages: ['@electric-sql/pglite'],
-  // async rewrites() {
-  //   return [
-  //     {
-  //       source: '/studio/:path*',
-  //       destination: '/studio/:path*',
-  //     },
-  //     {
-  //       source: '/sitemap.xml',
-  //       destination: '/api/sitemap', // Adjust this based on your dynamic sitemap generation route
-  //     },
-  //   ];
-  // },
-
+  /* config options here */
+  serverExternalPackages: ['import-in-the-middle', 'require-in-the-middle'],
   images: {
     remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'astfwqpuoa.ufs.sh',
+      },
+      {
+        protocol: 'https',
+        hostname: 'utfs.io',
+      },
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+      },
       {
         protocol: 'https',
         hostname: 'github.com',
@@ -70,7 +72,7 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default withSentryConfig(withNextIntl(nextConfig), {
+export default withSentryConfig(nextConfig, {
   // For all available options, see:
   // https://github.com/getsentry/sentry-webpack-plugin#options
   // FIXME: Add your Sentry organization and project names
@@ -98,8 +100,6 @@ export default withSentryConfig(withNextIntl(nextConfig), {
   tunnelRoute: '/monitoring',
 
   // Hides source maps from generated client bundles
-  hideSourceMaps: true,
-
   // Automatically tree-shake Sentry logger statements to reduce bundle size
   disableLogger: true,
 

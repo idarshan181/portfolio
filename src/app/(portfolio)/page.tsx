@@ -75,7 +75,7 @@ export default async function Index() {
       />
 
       {/* Hero Section */}
-      <Hero className="relative size-full bg-background" />
+      <Hero className="relative size-full bg-background " />
 
       {/* Projects Section */}
       <div className="mx-auto max-w-5xl ">

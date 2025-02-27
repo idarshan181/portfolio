@@ -1,5 +1,7 @@
 /* eslint-disable react-dom/no-dangerously-set-innerhtml */
+
 import type { Metadata } from 'next';
+
 import Education from '@/components/about/Education';
 import TableOfContents from '@/components/about/TableOfContents';
 import TechnicalSkills from '@/components/about/TechnicalSkills';
@@ -7,7 +9,7 @@ import TechnicalSkills from '@/components/about/TechnicalSkills';
 import WorkExperience from '@/components/about/WorkExperience';
 import Scroll from '@/components/Animation/Scroll';
 
-import Cal from '@/components/General/Cal';
+import Cal from '@/components/general/Cal';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { about, baseURL, person, social } from '@/resources';
@@ -206,7 +208,7 @@ export default function About() {
           )}
 
           {about.technical.display && (
-            <section id="Technical Skills" className="mt-10">
+            <section id={about.technical.title} className="mt-10">
               <h2 className="mb-4 text-4xl font-bold">{about.technical.title}</h2>
               <div className="space-y-6">
                 {about.technical.skills.map(skill => (

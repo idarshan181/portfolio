@@ -1,14 +1,22 @@
+/* eslint-disable react-dom/no-dangerously-set-innerhtml */
 import type { Metadata } from 'next';
-import arcjet, { detectBot, request } from '@/libs/Arcjet';
-import { Env } from '@/libs/Env';
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/next';
 
+import { Analytics } from '@vercel/analytics/react';
 import { ThemeProvider } from 'next-themes';
 
-import { Inter } from 'next/font/google';
+import { Geist, Geist_Mono } from 'next/font/google';
 
-import '@/styles/global.css';
+import './globals.css';
+
+const geistSans = Geist({
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
+});
+
+const geistMono = Geist_Mono({
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://idarshan18.com'),
@@ -76,68 +84,43 @@ export const metadata: Metadata = {
   ],
 };
 
-const grotesk = Inter({
-  weight: ['300', '400', '500', '600', '700', '800'],
-  display: 'swap',
-  style: ['normal', 'italic'],
-  preload: true,
-  subsets: ['latin', 'latin-ext'],
-  fallback: ['Arial', 'Helvetica', 'sans-serif'], // Fallbacks
-});
-
-// Improve security with Arcjet
-const aj = arcjet.withRule(
-  detectBot({
-    mode: 'LIVE',
-    // Block all bots except the following
-    allow: [
-      // See https://docs.arcjet.com/bot-protection/identifying-bots
-      'CATEGORY:SEARCH_ENGINE', // Allow search engines
-      'CATEGORY:PREVIEW', // Allow preview links to show OG images
-      'CATEGORY:MONITOR', // Allow uptime monitoring services
-    ],
-  }),
-);
-
-export default async function RootLayout(props: {
+export default function RootLayout({
+  children,
+}: Readonly<{
   children: React.ReactNode;
-}) {
-  // Verify the request with Arcjet
-  if (Env.ARCJET_KEY) {
-    const req = await request();
-    const decision = await aj.protect(req);
-
-    // These errors are handled by the global error boundary, but you could also
-    // redirect or show a custom error page
-    if (decision.isDenied()) {
-      if (decision.reason.isBot()) {
-        throw new Error('No bots allowed');
-      }
-
-      throw new Error('Access denied');
-    }
-  }
-
-  // Using internationalization in Client Components
-
-  // The `suppressHydrationWarning` attribute in <body> is used to prevent hydration errors caused by Sentry Overlay,
-  // which dynamically adds a `style` attribute to the body tag.
-
+}>) {
   return (
-    <html lang="en" className={grotesk.className}>
-      <body suppressHydrationWarning>
+    <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Person',
+              'name': 'Darshan Patel',
+              'url': 'https://idarshan18.com',
+              'jobTitle': 'Full Stack Developer',
+              'sameAs': [
+                'https://github.com/idarshan181',
+                'https://linkedin.com/in/idarshan18',
+              ],
+            }),
+          }}
+        />
+      </head>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-
-          {props.children}
-
-          {/* <DemoBadge /> */}
+          {children}
           <Analytics />
-          <SpeedInsights />
+
         </ThemeProvider>
       </body>
     </html>

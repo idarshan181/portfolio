@@ -1,33 +1,14 @@
-import { getTranslations, setRequestLocale } from 'next-intl/server';
-
-type IHobbyProps = {
-  params: Promise<{ slug: string; locale: string }>;
-};
-
-export async function generateMetadata(props: IHobbyProps) {
-  const { locale } = await props.params;
-  const t = await getTranslations({
-    locale,
-    namespace: 'Hobbies',
-  });
-
+export async function generateMetadata() {
   return {
-    title: t('meta_title'),
-    description: t('meta_description'),
+    title: 'Hobbies - Darshan Patel',
+    description: 'Explore Darshan \'s hobbies, interests, and personal activities beyond coding.',
   };
 }
 
-export default async function About(props: IHobbyProps) {
-  const { locale } = await props.params;
-  setRequestLocale(locale);
-  const t = await getTranslations({
-    locale,
-    namespace: 'Hobbies',
-  });
-
+export default async function About() {
   return (
     <>
-      <p>{t('about_paragraph')}</p>
+      <p>Hobbies</p>
     </>
   );
 };
