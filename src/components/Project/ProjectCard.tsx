@@ -2,7 +2,8 @@ import type { Project } from '@/resources/projects';
 import { ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Icons } from '../general/icons';
+
+import { Icons } from '../general/Icons';
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../ui/card';

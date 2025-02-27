@@ -12,9 +12,17 @@ export default function Cal({ className = '', style, ...props }: CalProps) {
   useEffect(() => {
     (async function () {
       const cal = await getCalApi({ namespace: '30min' });
-      cal('ui', { cssVarsPerTheme: { light: { 'cal-brand': '#2563eb' }, dark: { 'cal-brand': '#fafafa' } }, hideEventTypeDetails: false, layout: 'month_view' });
+      cal('ui', {
+        cssVarsPerTheme: {
+          light: { 'cal-brand': '#2563eb' },
+          dark: { 'cal-brand': '#fafafa' },
+        },
+        hideEventTypeDetails: false,
+        layout: 'month_view',
+      });
     })();
   }, []);
+
   return (
     <Button
       type="button"
@@ -32,4 +40,4 @@ export default function Cal({ className = '', style, ...props }: CalProps) {
       <FaChevronRight />
     </Button>
   );
-};
+}
