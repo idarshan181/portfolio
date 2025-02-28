@@ -1,6 +1,4 @@
-import DarshanHeadshot from '@/public/images/avatar_main.webp';
 import { about, home } from '@/resources';
-import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '../ui/button';
 
@@ -39,14 +37,9 @@ export default function Hero({ className = '', style, ...props }: HeroProps) {
       </div>
 
       {/* Right Section (Headshot) */}
-      <div className="relative mb-10 flex-1 md:mb-0">
+      {/* <div className="relative mb-10 flex-1 md:mb-0">
         <div className="relative mx-auto size-40 overflow-hidden rounded-full ring-4 ring-primary drop-shadow-2xl  sm:size-80 ">
-          {/* <Image
-            src={DarshanHeadshot}
-            alt="Darshan Patel's Headshot"
-            priority
-            quality={85} // Adjust quality
-          /> */}
+
           <Image
             src={DarshanHeadshot}
             alt="Darshan Patel's Headshot"
@@ -58,10 +51,9 @@ export default function Hero({ className = '', style, ...props }: HeroProps) {
           />
         </div>
 
-        {/* Decorative Elements */}
         <div className="absolute -left-10 -top-10 hidden size-32 rounded-full bg-blue-200 blur-xl dark:bg-blue-800 md:block"></div>
         <div className="absolute right-12 top-12 hidden size-20 rounded-full bg-blue-300 blur-lg dark:bg-blue-700 md:block"></div>
-      </div>
+      </div> */}
     </div>
   );
 }
