@@ -1,4 +1,4 @@
-const baseURL = 'www.idarshan18.com';
+const baseURL = 'https://www.idarshan18.com';
 
 const routes = {
   '/': true,
