@@ -12,9 +12,10 @@ import Scroll from '@/components/Animation/Scroll';
 import Cal from '@/components/general/Cal';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { about, baseURL, person, social } from '@/resources';
-import { getBaseUrl } from '@/utils/Helpers';
 
+import { getBaseUrl } from '@/utils/Helpers';
 import Link from 'next/link';
 import { FaGlobeAmericas } from 'react-icons/fa';
 
@@ -161,19 +162,28 @@ export default function About() {
           )}
           <section id={about.intro.title} className="mt-5">
             <h1 className="text-center text-4xl font-bold leading-none md:text-start md:text-7xl">{person.name}</h1>
-            <h2 className="mt-4 text-center text-2xl font-medium leading-none text-muted-foreground md:text-start md:text-4xl">{person.role}</h2>
+            <h2 className="mt-4 text-center text-2xl font-medium leading-none text-foreground/80 md:text-start md:text-4xl">{person.role}</h2>
 
             {/* Social Links */}
             {social.length > 0 && (
               <div className="mt-4 flex flex-wrap justify-center gap-2 md:justify-start">
                 {social.map(item => (
                   item.link && (
-                    <Button key={item.name} variant="outline" size="sm" asChild>
-                      <Link href={item.link} className="flex items-center font-medium">
-                        {item.icon}
-                        <span className="hidden font-bold md:inline">{item.name}</span>
-                      </Link>
-                    </Button>
+                    <TooltipProvider key={item.name}>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Button variant="outline" size="sm" asChild>
+                            <Link href={item.link} className="flex items-center font-medium">
+                              {item.icon}
+                              <span className="hidden font-bold md:inline">{item.name}</span>
+                            </Link>
+                          </Button>
+                        </TooltipTrigger>
+                        <TooltipContent className="text-foreground" side="bottom" align="center">
+                          {item.link}
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
                   )
                 ))}
               </div>
