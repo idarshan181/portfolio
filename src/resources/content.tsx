@@ -47,7 +47,7 @@ const social = [
   {
     name: 'X',
     icon: <Twitter size={24} />,
-    link: 'https://twitter.com/darshan18',
+    link: 'https://twitter.com/idarshan18',
   },
   {
     name: 'Email',
