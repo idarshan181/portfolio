@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 'use client';
 
 import { Card, CardContent } from '@/components/ui/card';
@@ -19,14 +18,10 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
 
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          console.log('Observed Section:', entry.target.id, 'Is Intersecting:', entry.isIntersecting);
-        });
         const visibleSection = entries
           .filter(entry => entry.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
         if (visibleSection) {
-          console.log('Active Section:', visibleSection.target.id);
           setActiveSection(visibleSection.target.id);
         }
       },
@@ -48,7 +43,6 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
 
   const scrollTo = (id: string) => {
     const element = document.getElementById(id);
-    console.log(id, typeof id);
 
     if (id === 'Introduction') {
       // Scroll to the top of the page for 'Introduction'

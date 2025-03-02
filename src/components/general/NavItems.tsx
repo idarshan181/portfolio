@@ -15,7 +15,7 @@ const navItems = [
   { icon: LiaHomeSolid, label: 'Home', value: '/' },
   { icon: VscAccount, label: 'About', value: '/about' },
   { icon: GrProjects, label: 'Projects', value: '/projects' },
-  { icon: MdSpaceDashboard, label: 'Hobbies', value: '/hobbies' },
+  { icon: MdSpaceDashboard, label: 'Dashboard', value: '/dashboard' },
   { icon: TiContacts, label: 'Contact', value: '/contact' },
 ];
 
