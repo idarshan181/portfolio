@@ -1,7 +1,6 @@
-/* eslint-disable no-console */
 'use client'; // Runs on client-side
 
-import { fetchNowPlaying, fetchRecentlyPlayed, fetchTopTracks } from '@/app/actions/actions';
+import { fetchNowPlaying, fetchRecentlyPlayed } from '@/app/actions/actions';
 import { cn } from '@/lib/utils';
 import { Music, Pause, Play, Volume2 } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
@@ -41,8 +40,6 @@ export default function NowPlaying() {
       setLoading(true);
 
       const nowPlayingTrack = await fetchNowPlaying();
-      const topTracks = await fetchTopTracks();
-      console.log(topTracks);
       if (nowPlayingTrack) {
         setSong(nowPlayingTrack);
         setNowPlaying(true);

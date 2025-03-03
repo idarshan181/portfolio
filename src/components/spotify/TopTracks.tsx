@@ -99,6 +99,8 @@ const TrackItem = ({
 export default function TopTracks() {
   const [tracks, setTracks] = useState<SpotifyTrack[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
   const [hoveredTrack, setHoveredTrack] = useState<string | null>(null);
 
   useEffect(() => {
@@ -107,8 +109,8 @@ export default function TopTracks() {
       try {
         const data = await fetchTopTracks();
         setTracks(data as SpotifyTrack[]);
-      } catch (error) {
-        console.error('Error fetching top tracks:', error);
+      } catch {
+        setError('Failed to fetch top tracks');
       } finally {
         setLoading(false);
       }
@@ -141,6 +143,19 @@ export default function TopTracks() {
               </div>
             ))}
           </div>
+        </CardContent>
+      </Card>
+    );
+  }
+
+  if (error) {
+    return (
+      <Card className="w-full bg-background/50 backdrop-blur-sm border border-border/50">
+        <CardHeader>
+          <CardTitle className="text-xl font-semibold text-red-500">Error</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="text-center text-red-400">{error}</p>
         </CardContent>
       </Card>
     );

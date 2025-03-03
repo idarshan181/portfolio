@@ -1,3 +1,4 @@
+/* eslint-disable unused-imports/no-unused-vars */
 import axios from 'axios';
 import { NextResponse } from 'next/server';
 import * as qs from 'qs';
@@ -32,7 +33,6 @@ export async function GET() {
 
     return NextResponse.json({ access_token: response.data.access_token }, { status: 200 });
   } catch (error: any) {
-    console.error('Error fetching access token:', error.response?.data || error.message);
     return NextResponse.json({ error: 'Failed to get access token' }, { status: 500 });
   }
 }
