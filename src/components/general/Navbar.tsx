@@ -14,11 +14,6 @@ const Navbar: React.FC = () => {
             {display.location && <span>{person.location}</span>}
           </div>
           <div className="mx-auto flex size-full max-w-fit items-center justify-around rounded-lg border border-gray-200 bg-background/80 px-4 shadow-lg drop-shadow-lg backdrop-blur-md dark:border-gray-700 dark:bg-gray-800/60">
-            {/* <nav>
-              <ul className="flex h-full flex-wrap items-center gap-x-5 text-lg font-medium">
-                {props.leftNav}
-              </ul>
-            </nav> */}
             <nav>
               <ul className="flex h-full  flex-wrap items-center text-lg font-medium md:gap-x-2">
                 <NavItems />

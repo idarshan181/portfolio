@@ -40,7 +40,7 @@ export default function NavItems() {
             </Link>
           </li>
           {index === 0 && (
-            <Separator orientation="vertical" className="mx-3 h-6 border-l border-gray-300" />
+            <Separator role="listitem" orientation="vertical" className="mx-3 h-6 border-l border-gray-300" />
           )}
         </Fragment>
       ))}
