@@ -1,13 +1,17 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-
 import { getTopTracks, SpotifyTrack } from '@/lib/spotify';
 
-export async function handler(req: NextApiRequest, res: NextApiResponse) {
+export async function GET() {
   const tracks: SpotifyTrack[] | null = await getTopTracks();
 
   if (!tracks) {
-    return res.status(500).json({ message: 'Failed to fetch top tracks.' });
+    return new Response(JSON.stringify({ error: 'Failed to fetch top tracks.' }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
 
-  return res.status(200).json(tracks);
+  return new Response(JSON.stringify(tracks), {
+    status: 200,
+    headers: { 'Content-Type': 'application/json' },
+  });
 }
