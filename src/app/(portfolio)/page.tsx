@@ -1,9 +1,12 @@
 /* eslint-disable react-dom/no-dangerously-set-innerhtml */
 import Hero from '@/components/landing/Hero';
 import { ProjectsGrid } from '@/components/Project/ProjectGrid';
+import { Button } from '@/components/ui/button';
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { about, baseURL, home, person } from '@/resources';
 import { getBaseUrl } from '@/utils/Helpers';
+import { SquareArrowOutUpRight } from 'lucide-react';
+import Link from 'next/link';
 
 export async function generateMetadata() {
   const title = home.title;
@@ -80,11 +83,20 @@ export default async function Index() {
       {/* Projects Section */}
       <div className="mx-auto max-w-5xl ">
         <Card className="mb-5">
-          <CardHeader>
-            <CardTitle>Featured Projects</CardTitle>
-            <CardDescription>
-              Explore some of my best work, built using modern tools and technologies.
-            </CardDescription>
+          <CardHeader className="flex flex-row w-full justify-between items-center">
+            <div className="space-y-1.5">
+              <CardTitle>Featured Projects</CardTitle>
+              <CardDescription>
+                Explore some of my best work, built using modern tools and technologies.
+              </CardDescription>
+            </div>
+            <Button asChild size="lg" className="w-1/2 md:w-auto cursor-pointer">
+
+              <Link href="/projects">
+                <SquareArrowOutUpRight />
+                View Projects
+              </Link>
+            </Button>
           </CardHeader>
         </Card>
         <ProjectsGrid featuredOnly />
