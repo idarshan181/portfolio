@@ -1,12 +1,12 @@
 import type { Project } from '@/resources/projects';
 import { ExternalLink } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
 
 import { Icons } from '../general/Icons';
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../ui/card';
+import { LinkPreview } from '../ui/link-preview';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../ui/tooltip';
 
 type ProjectCardProps = {
@@ -66,10 +66,17 @@ export function ProjectCard({ project }: ProjectCardProps) {
         )}
         {project.demo && (
           <Button size="sm" asChild>
-            <Link href={project.demo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-white">
+            <LinkPreview
+              url={project.demo}
+              width={300}
+              height={200}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <ExternalLink className="size-4" />
               <span>Demo</span>
-            </Link>
+            </LinkPreview>
+
           </Button>
         )}
       </CardFooter>

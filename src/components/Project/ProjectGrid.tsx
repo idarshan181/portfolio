@@ -11,7 +11,7 @@ type ProjectsGridProps = {
 };
 export function ProjectsGrid({ featuredOnly = false }: ProjectsGridProps) {
   const [filteredProjects, setFilteredProjects] = useState(
-    featuredOnly ? allProjects.filter(project => project.featured) : allProjects,
+    (featuredOnly ? allProjects.filter(project => project.featured) : allProjects).sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0)),
   );
 
   useEffect(() => {
