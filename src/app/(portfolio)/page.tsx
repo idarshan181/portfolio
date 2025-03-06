@@ -90,7 +90,7 @@ export default async function Index() {
                 Explore some of my best work, built using modern tools and technologies.
               </CardDescription>
             </div>
-            <Button asChild size="lg" className="w-1/2 md:w-auto cursor-pointer">
+            <Button asChild size="lg" className="w-1/2 md:w-auto cursor-pointer text-white">
 
               <Link href="/projects">
                 <SquareArrowOutUpRight />
