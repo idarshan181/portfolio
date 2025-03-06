@@ -1,6 +1,13 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+  experimental: {
+    turbo: {
+      resolveAlias: {
+        canvas: './src/app/empty-module.ts',
+      },
+    },
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
@@ -31,6 +38,10 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'i.scdn.co',
+      },
+      {
+        protocol: 'https',
+        hostname: 'api.microlink.io',
       },
     ],
     localPatterns: [
