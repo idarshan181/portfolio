@@ -140,7 +140,6 @@
   "resolutions": {
     "@uploadthing/react": "^7.2.0",
     "next": "15.1.6",
-    "pdfjs-dist": "patch:pdfjs-dist@npm:4.8.69#.yarn/patches/pdfjs-dist-npm-4.8.69-789befba80.patch",
     "react": "^19.0.0"
   }
 }
