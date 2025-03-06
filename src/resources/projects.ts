@@ -26,8 +26,20 @@ export const projects: Project[] = [
     tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'ShadCN'],
     github: 'https://github.com/idarshan181/portfolio',
     demo: 'https://idarshan18.com',
-    featured: true,
+    featured: false,
   },
+  {
+    id: 'linksnip',
+    title: 'LinkSnip - URL Shortener & Scalable Link Manager',
+    description:
+      'URL Shortener is a web-based application that simplifies link management by allowing users to shorten URLs, track analytics, and manage links efficiently, featuring user authentication and real-time performance insights.',
+    image: '/images/projects/LinkSnip-light.avif',
+    tags: ['Next.js', 'PostgreSQL', 'System Design', 'TypeScript', 'URL Shortener'],
+    github: 'https://github.com/idarshan181/SD-url-shortener',
+    demo: 'https://linksnip.me/', // If you have a live demo, add the link, otherwise keep empty
+    featured: true, // Set to true if you want it highlighted on the homepage
+  },
+
   {
     id: 'expense-tracker-mun',
     title: 'Expense Tracker MUN',
@@ -44,7 +56,7 @@ export const projects: Project[] = [
     title: 'Cognitive Search for Canadian Tax Law',
     description:
       'An AI-powered RAG (Retrieval-Augmented Generation) system that enables intelligent document retrieval and answering tax law-related queries using LLMs and Weaviate.',
-    image: '/images/projects/cognitive-search-backend.webp', // Replace with an actual hosted image
+    image: '/images/projects/Tax-Scout.webp', // Replace with an actual hosted image
     tags: ['LLM', 'Weaviate', 'FastAPI', 'Python', 'Docker', 'RAG', 'ML'],
     // github: 'https://github.com/idarshan181/cognitive-search-backend', // Replace with actual repo if public
     demo: 'https://cognitive-marketing-website.vercel.app/',
@@ -61,18 +73,6 @@ export const projects: Project[] = [
     github: 'https://github.com/idarshan181/faceblur-server-fastapi',
     demo: '',
     featured: true,
-  },
-
-  {
-    id: 'sd-url-shortener',
-    title: 'URL Shortener - Scalable Link Management',
-    description:
-      'A URL shortening web application built with Next.js and MongoDB, designed using system design principles for scalability, reliability, and efficiency. Inspired by Alex Xu\'s system design concepts, this project serves as a hands-on practice in implementing real-world architectural patterns.',
-    image: '/images/projects/url-shortener.webp',
-    tags: ['Next.js', 'MongoDB', 'System Design', 'TypeScript', 'URL Shortener'],
-    github: 'https://github.com/idarshan181/SD-url-shortener',
-    demo: 'https://quickshorturl.vercel.app/', // If you have a live demo, add the link, otherwise keep empty
-    featured: false, // Set to true if you want it highlighted on the homepage
   },
 
 ];
