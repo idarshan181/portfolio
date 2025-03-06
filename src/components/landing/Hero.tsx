@@ -32,8 +32,11 @@ export default function Hero({ className = '', style, ...props }: HeroProps) {
               {about.title}
             </Link>
           </Button>
-          <Button asChild size="lg" variant="outline" className="w-1/2 md:w-auto">
+          {/* <Button asChild size="lg" variant="outline" className="w-1/2 md:w-auto">
             <Link href="/projects">View Projects</Link>
+          </Button> */}
+          <Button asChild size="lg" variant="outline" className="w-1/2 md:w-auto">
+            <Link href="/resume">View My Resume</Link>
           </Button>
         </div>
       </div>
