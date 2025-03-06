@@ -10,7 +10,7 @@ const person = {
   },
   role: 'Full Stack Developer',
   avatar: '/images/avatar.jpg',
-  location: 'St. John\'s, Canada', // Updated location
+  location: 'Canada', // Updated location
   timezone: 'America/St_Johns',
   languages: ['English', 'Hindi', 'Gujarati'], // Example languages
 };
