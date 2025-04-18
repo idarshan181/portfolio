@@ -63,7 +63,7 @@ const home = {
   headline: <>Full Stack Developer and Builder</>,
   subline: (
     <div className="inline-block font-normal text-foreground">
-      Hi, I’m
+      Hi, I'm
       {' '}
       <span className="font-bold text-primary">{person.name}</span>
       <HandWave />
@@ -109,10 +109,10 @@ const about = {
         timeframe: 'May 2020 – August 2023',
         role: 'Full-Stack Developer',
         achievements: [
-          `Built a Super Admin portal to manage 50+ organizations and 2,500+ users, streamlining operations and improving user management.`,
-          `Developed scalable APIs and AI-driven pipelines for automating PDF processing, enabling the handling of 13 million assessments in 3 days.`,
-          `Digitized textbooks into interactive PDFs, boosting usage by 80%, and automated real-time performance reports for over 10,000 parents using WhatsApp API.`,
-          `Mentored junior engineers and guided architectural decisions, ensuring performant, maintainable code.`,
+          'Built a Super Admin portal to manage 50+ organizations and 2,500+ users, streamlining operations and improving user management.',
+          'Developed scalable APIs and AI-driven pipelines for automating PDF processing, enabling the handling of 13 million assessments in 3 days.',
+          'Digitized textbooks into interactive PDFs, boosting usage by 80%, and automated real-time performance reports for over 10,000 parents using WhatsApp API.',
+          'Mentored junior engineers and guided architectural decisions, ensuring performant, maintainable code.',
         ],
         images: [],
       },
@@ -121,8 +121,8 @@ const about = {
         timeframe: 'May 2019 – May 2020',
         role: 'Front End Developer Intern',
         achievements: [
-          `Developed a scalable CMS with React, TypeScript, and AWS, improving authoring efficiency by 40% and cutting costs by 30%.`,
-          `Built cross-platform UI components and automated data processing using AWS Lambda, enhancing user experience across devices.`,
+          'Developed a scalable CMS with React, TypeScript, and AWS, improving authoring efficiency by 40% and cutting costs by 30%.',
+          'Built cross-platform UI components and automated data processing using AWS Lambda, enhancing user experience across devices.',
         ],
         images: [],
       },
@@ -225,7 +225,7 @@ const work = {
 const gallery = {
   label: 'Gallery',
   title: 'Gallery',
-  description: `A glimpse into my projects and designs.`,
+  description: 'A glimpse into my projects and designs.',
 };
 
 export { about, blog, gallery, home, newsletter, person, social, work };

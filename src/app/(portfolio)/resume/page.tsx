@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 'use client';
 
 import { Button } from '@/components/ui/button';
@@ -40,7 +39,6 @@ export default function ResumePage() {
 
   const onDocumentLoadSuccess = ({ numPages }: { numPages: number }) => {
     setNumPages(numPages);
-    console.log(`Document loaded successfully with ${numPages} pages`);
   };
 
   const onDocumentLoadError = (error: Error) => {

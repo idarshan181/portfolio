@@ -1,11 +1,12 @@
 /* eslint-disable react-dom/no-dangerously-set-innerhtml */
 import type { Metadata } from 'next';
 
+import { Toaster } from '@/components/ui/sonner';
 import { Analytics } from '@vercel/analytics/react';
+
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import { ThemeProvider } from 'next-themes';
-
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 
@@ -95,6 +96,7 @@ export default function RootLayout({
       <head>
         <script
           type="application/ld+json"
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
@@ -120,6 +122,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Toaster richColors closeButton />
           {children}
           <Analytics />
           <SpeedInsights />

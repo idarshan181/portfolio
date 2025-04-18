@@ -1,6 +1,8 @@
 /* eslint-disable react-dom/no-dangerously-set-innerhtml */
 import Hero from '@/components/landing/Hero';
+
 import { ProjectsGrid } from '@/components/Project/ProjectGrid';
+
 import { Button } from '@/components/ui/button';
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { about, baseURL, home, person } from '@/resources';
@@ -50,6 +52,7 @@ export default async function Index() {
       {/* Metadata (Dynamic SEO with Hero Content) */}
       <script
         type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             '@context': 'https://schema.org',
@@ -57,7 +60,7 @@ export default async function Index() {
             'name': home.title,
             'jobTitle': person.role,
             'description': about.intro.description,
-            'url': `https://idarshan18.com`,
+            'url': 'https://idarshan18.com',
             'image': '/images/avatar_main.webp',
             'sameAs': [
               'https://github.com/idarshan181',
