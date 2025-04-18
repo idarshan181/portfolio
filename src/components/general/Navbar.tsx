@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
               </ul>
             </nav>
             <nav>
-              <ul className="flex h-full flex-wrap items-center gap-x-2 text-lg font-medium ">
+              <ul className="flex h-full flex-wrap items-center gap-x-2 ml-2 text-lg font-medium ">
                 <li className="">
                   <ThemeToggle />
                 </li>
