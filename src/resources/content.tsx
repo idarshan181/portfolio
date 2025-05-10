@@ -1,4 +1,4 @@
-import HandWave from '@/components/Animation/HandWave';
+import HeroHeadline from '@/components/landing/HeroHeadline';
 
 import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
 
@@ -62,13 +62,7 @@ const home = {
   description: `A showcase of my journey and work as a ${person.role}.`,
   headline: <>Full Stack Developer and Builder</>,
   subline: (
-    <div className="inline-block font-normal text-foreground">
-      Hi, I'm
-      {' '}
-      <span className="font-bold text-primary">{person.name}</span>
-      <HandWave />
-      , a full stack developer building scalable systems and AI-powered solutions. Exploring the RAG hype—because even AI needs a fact-checker!
-    </div>
+    <HeroHeadline />
   ),
 };
 
@@ -105,6 +99,15 @@ const about = {
     title: 'Work Experience',
     experiences: [
       {
+        company: 'Focus FS',
+        timeframe: 'May 2025 – Present',
+        role: 'Full-Stack Developer',
+        achievements: [
+
+        ],
+        images: [],
+      },
+      {
         company: 'PlayPower Labs',
         timeframe: 'May 2020 – August 2023',
         role: 'Full-Stack Developer',
@@ -135,10 +138,16 @@ const about = {
       {
         name: 'Memorial University',
         description: 'Master of Applied Science in Computer Engineering',
+        timeframe: 'Aug 2023 - May 2025',
+        grade: 3.58,
+        gradeScale: 4,
       },
       {
         name: 'Nirma University',
-        description: 'Bachelor\'s in Information Technology',
+        description: 'Bachelor\'s of Technology in Information Technology',
+        timeframe: 'July 2016 - May 2020',
+        grade: 7.28,
+        gradeScale: 10,
       },
     ],
   },
