@@ -36,7 +36,7 @@ export default function NavItems() {
               className="relative flex items-center justify-center text-base font-medium transition-colors hover:text-primary md:gap-x-2"
             >
               <item.icon size={20} />
-              <span className="hidden sm:inline">{item.label}</span>
+              <span className="hidden lg:inline">{item.label}</span>
             </Link>
           </li>
           {index === 0 && (
