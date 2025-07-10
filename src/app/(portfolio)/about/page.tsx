@@ -22,9 +22,7 @@ import { FaGlobeAmericas } from 'react-icons/fa';
 export async function generateMetadata(): Promise<Metadata> {
   const baseURL = getBaseUrl();
   const title = `About ${person.name} - ${person.role}`;
-  const description = `Learn about ${person.name}'s journey as a ${person.role}. ${`Darshan is a Full Stack Developer with expertise in crafting scalable
-        systems and seamless user experiences. His work spans backend architecture,
-        APIs, and modern frontend design.".slice(0, 150)`}`;
+  const description = `Learn about ${person.name}'s journey as a ${person.role}. Darshan Patel is a Full Stack Developer with expertise in scalable systems, backend architecture, and modern frontend design. Currently working as a Research Assistant at Western University and a Full-Stack Developer at Focus FS.`;
 
   const ogImage = `${baseURL}/og?title=${encodeURIComponent(title)}`;
 
@@ -68,6 +66,15 @@ export async function generateMetadata(): Promise<Metadata> {
       'Portfolio',
       'Developer',
       'Software Engineer',
+      'Research Assistant',
+      'Western University',
+      'Focus FS',
+      'Full-Stack Developer',
+      'London Ontario Developer',
+      'Darshan Patel Full-Stack Developer',
+      'Darshan Patel Research Assistant',
+      'Western University Research',
+      'Focus FS Developer',
       ...about.technical.skills.map(skill => skill.category),
     ],
     robots: {
@@ -99,7 +106,6 @@ export default function About() {
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             '@context': 'https://schema.org',
@@ -110,7 +116,12 @@ export default function About() {
             'url': `https://${baseURL}/about`,
             'image': `${baseURL}/images/${person.avatar}`,
             'sameAs': social.filter(item => item.link && !item.link.startsWith('mailto:')).map(item => item.link),
-            'worksFor': { '@type': 'Organization', 'name': about.work.experiences[0].company || '' },
+            'worksFor': [
+              { '@type': 'Organization', 'name': 'Western University', 'url': 'https://www.uwo.ca/' },
+              { '@type': 'Organization', 'name': 'Focus FS', 'url': 'https://www.focusfs.com/' },
+            ],
+            'knowsAbout': about.technical.skills.map(skill => skill.category),
+            'location': person.location,
           }),
         }}
       />
@@ -126,7 +137,7 @@ export default function About() {
             <Avatar className="size-48 border-2 border-gray-500">
               <AvatarImage
                 src="images/avatar_main.webp"
-                alt={person.name}
+                alt={`${person.name} - Full-Stack Developer`}
                 className="size-48 rounded-full zoom-in-90"
               />
               <AvatarFallback className="size-48 text-2xl zoom-in-90">
