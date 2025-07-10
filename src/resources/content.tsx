@@ -99,11 +99,24 @@ const about = {
     title: 'Work Experience',
     experiences: [
       {
+        company: 'Western University',
+        timeframe: 'June 2025 – Present',
+        role: 'Research Assistant (Part-time)',
+        achievements: [
+          'Supported the development of a hand joint assessment platform using data analytics and machine learning.',
+          'Conducted performance validation to enhance the accuracy and reliability of clinical assessments.',
+          'Addressed real-world healthcare problems through innovative technological solutions.',
+        ],
+        images: [],
+      },
+      {
         company: 'Focus FS',
         timeframe: 'May 2025 – Present',
         role: 'Full-Stack Developer',
         achievements: [
-
+          'Designed and implemented key features for web applications, improving user experience and functionality.',
+          // 'Optimized backend services to enhance performance and scalability, reducing response times by 20%.',
+          'Collaborated with product managers and designers to deliver solutions aligned with business goals.',
         ],
         images: [],
       },
