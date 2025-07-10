@@ -1,3 +1,4 @@
+/* eslint-disable unused-imports/no-unused-vars */
 'use client';
 
 import { Button } from '@/components/ui/button';
@@ -9,33 +10,24 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
-import { useResizeObserver } from '@wojtekmaj/react-hooks';
 import { Download } from 'lucide-react';
-import { useCallback, useState } from 'react';
-import { Document, Page, pdfjs } from 'react-pdf';
-import 'react-pdf/dist/Page/AnnotationLayer.css';
-import 'react-pdf/dist/Page/TextLayer.css';
+import dynamic from 'next/dynamic';
+import { useState } from 'react';
 
-if (typeof window !== 'undefined') {
-  pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.mjs`;
-}
+const DocumentWithNoSSR = dynamic(
+  () => import('react-pdf').then(mod => mod.Document),
+  { ssr: false },
+);
+const PageWithNoSSR = dynamic(
+  () => import('react-pdf').then(mod => mod.Page),
+  { ssr: false },
+);
 
 const maxWidth = 800;
 
 export default function ResumePage() {
   const [numPages, setNumPages] = useState<number | null>(null);
-
-  const [containerRef, setContainerRef] = useState<HTMLElement | null>(null);
   const [containerWidth, setContainerWidth] = useState<number>(maxWidth);
-
-  const onResize = useCallback<ResizeObserverCallback>((entries) => {
-    const [entry] = entries;
-    if (entry) {
-      setContainerWidth(entry.contentRect.width);
-    }
-  }, []);
-
-  useResizeObserver(containerRef, {}, onResize);
 
   const onDocumentLoadSuccess = ({ numPages }: { numPages: number }) => {
     setNumPages(numPages);
@@ -47,12 +39,7 @@ export default function ResumePage() {
 
   return (
     <div className="container mx-auto py-8 px-4">
-      <Card
-        className={cn(
-          'mx-auto max-w-4xl shadow-lg overflow-hidden max-h-screen',
-          containerWidth,
-        )}
-      >
+      <Card className={cn('mx-auto max-w-4xl shadow-lg overflow-hidden max-h-screen')}>
         <CardHeader className="flex flex-row justify-between items-center p-4">
           <CardTitle>Darshan's Resume</CardTitle>
           <CardDescription>
@@ -72,11 +59,8 @@ export default function ResumePage() {
           </CardDescription>
         </CardHeader>
         <CardContent className="p-6">
-          <div
-            ref={setContainerRef}
-            className="w-full h-[80vh] overflow-y-auto border rounded-lg shadow-md p-2"
-          >
-            <Document
+          <div className="w-full h-[80vh] overflow-y-auto border rounded-lg shadow-md p-2">
+            <DocumentWithNoSSR
               file="/resume/Darshan_Resume.pdf"
               onLoadSuccess={onDocumentLoadSuccess}
               onLoadError={onDocumentLoadError}
@@ -84,11 +68,8 @@ export default function ResumePage() {
             >
               {numPages
                 && Array.from({ length: numPages }, (_el, index) => (
-                  <div
-                    key={`page_${index + 1}`}
-                    className="rounded-lg overflow-hidden"
-                  >
-                    <Page
+                  <div key={`page_${index + 1}`} className="rounded-lg overflow-hidden">
+                    <PageWithNoSSR
                       pageNumber={index + 1}
                       renderTextLayer
                       renderAnnotationLayer
@@ -101,7 +82,7 @@ export default function ResumePage() {
                     />
                   </div>
                 ))}
-            </Document>
+            </DocumentWithNoSSR>
           </div>
         </CardContent>
       </Card>
