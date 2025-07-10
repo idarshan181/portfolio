@@ -1,7 +1,7 @@
-import DarshanHeadshot from '@/public/images/avatar_main.avif';
-import { about, home } from '@/resources';
 import Image from 'next/image';
 import Link from 'next/link';
+import DarshanHeadshot from '@/public/images/avatar_main.avif';
+import { about, home } from '@/resources';
 import { Button } from '../ui/button';
 
 type HeroProps = React.ComponentProps<'div'>;

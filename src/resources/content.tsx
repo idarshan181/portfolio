@@ -1,6 +1,6 @@
-import HeroHeadline from '@/components/landing/HeroHeadline';
-
 import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
+
+import HeroHeadline from '@/components/landing/HeroHeadline';
 
 const person = {
   firstName: 'Darshan',

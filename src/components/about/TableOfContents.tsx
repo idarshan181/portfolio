@@ -1,7 +1,7 @@
 'use client';
 
-import { Card, CardContent } from '@/components/ui/card';
 import React, { useEffect, useState } from 'react';
+import { Card, CardContent } from '@/components/ui/card';
 
 type TableOfContentsProps = {
   structure: { title: string; display: boolean; items: string[] }[];

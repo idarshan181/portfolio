@@ -1,5 +1,5 @@
-import { person, social } from '@/resources';
 import Link from 'next/link';
+import { person, social } from '@/resources';
 
 type FooterProps = React.ComponentProps<'footer'>;
 

@@ -1,30 +1,28 @@
-'use client';
-
 import { useResizeObserver } from '@wojtekmaj/react-hooks';
+
 import { Download } from 'lucide-react';
+
 import { useCallback, useState } from 'react';
 
 import { Document, Page, pdfjs } from 'react-pdf';
 
-import { Button } from '@/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
 import { cn } from '@/lib/utils';
-import 'react-pdf/dist/Page/AnnotationLayer.css';
-import 'react-pdf/dist/Page/TextLayer.css';
+import { Button } from '../ui/button';
+
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card';
+
+const maxWidth = 800;
 
 if (typeof window !== 'undefined') {
   pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.mjs`;
 }
 
-const maxWidth = 800;
-
-export default function ResumePage() {
+// const options = {
+//   cMapUrl: '/cmaps/',
+//   standardFontDataUrl: '/standard_fonts/',
+//   wasmUrl: '/wasm/',
+// };
+export default function Resume() {
   const [numPages, setNumPages] = useState<number | null>(null);
 
   const [containerRef, setContainerRef] = useState<HTMLElement | null>(null);
@@ -83,6 +81,7 @@ export default function ResumePage() {
               onLoadSuccess={onDocumentLoadSuccess}
               onLoadError={onDocumentLoadError}
               className="dark:invert dark:brightness-90 dark:contrast-110 dark:hue-rotate-90 rounded-lg"
+
             >
               {numPages
                 && Array.from({ length: numPages }, (_el, index) => (

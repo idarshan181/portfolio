@@ -1,13 +1,17 @@
 'use client';
 
-import { fetchTopTracks } from '@/app/actions/actions';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { cn } from '@/lib/utils';
 import { ExternalLink, Music } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
+
 import { useEffect, useState } from 'react';
+
+import { fetchTopTracks } from '@/app/actions/actions';
+
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+
+import { cn } from '@/lib/utils';
 
 // Define Types for Spotify Data
 interface SpotifyArtist {

@@ -1,8 +1,8 @@
 'use client';
 
-import { projects as allProjects } from '@/resources/projects';
-
 import { useEffect, useState } from 'react';
+
+import { projects as allProjects } from '@/resources/projects';
 import { ProjectCard } from './ProjectCard';
 import { ProjectsFilter } from './ProjectFilter';
 

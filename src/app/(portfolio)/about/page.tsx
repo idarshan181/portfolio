@@ -2,22 +2,22 @@
 
 import type { Metadata } from 'next';
 
+import Link from 'next/link';
+import { FaGlobeAmericas } from 'react-icons/fa';
 import Education from '@/components/about/Education';
+
 import TableOfContents from '@/components/about/TableOfContents';
 import TechnicalSkills from '@/components/about/TechnicalSkills';
 
 import WorkExperience from '@/components/about/WorkExperience';
 import Scroll from '@/components/Animation/Scroll';
-
 import Cal from '@/components/general/Cal';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
+
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { about, baseURL, person, social } from '@/resources';
-
 import { getBaseUrl } from '@/utils/Helpers';
-import Link from 'next/link';
-import { FaGlobeAmericas } from 'react-icons/fa';
 
 export async function generateMetadata(): Promise<Metadata> {
   const baseURL = getBaseUrl();

@@ -1,8 +1,8 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
 import { useTheme } from 'next-themes';
 import { FaMoon, FaSun } from 'react-icons/fa6';
+import { Button } from '@/components/ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '../ui/dropdown-menu';
 
 export function ThemeToggle() {

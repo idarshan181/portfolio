@@ -1,14 +1,14 @@
 'use client'; // Runs on client-side
 
-import { fetchNowPlaying, fetchRecentlyPlayed } from '@/app/actions/actions';
-import { cn } from '@/lib/utils';
 import { Music, Pause, Play, Volume2 } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import Image from 'next/image';
-
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+
 import { FaSpotify } from 'react-icons/fa6';
+import { fetchNowPlaying, fetchRecentlyPlayed } from '@/app/actions/actions';
+import { cn } from '@/lib/utils';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
 

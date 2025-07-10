@@ -1,14 +1,14 @@
 /* eslint-disable react-dom/no-dangerously-set-innerhtml */
+import { SquareArrowOutUpRight } from 'lucide-react';
+
+import Link from 'next/link';
+
 import Hero from '@/components/landing/Hero';
-
 import { ProjectsGrid } from '@/components/Project/ProjectGrid';
-
 import { Button } from '@/components/ui/button';
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { about, baseURL, home, person } from '@/resources';
 import { getBaseUrl } from '@/utils/Helpers';
-import { SquareArrowOutUpRight } from 'lucide-react';
-import Link from 'next/link';
 
 export async function generateMetadata() {
   const title = home.title;
