@@ -40,11 +40,11 @@ jobs:
         uses: actions/cache@v4
         with:
           path: node_modules
-          key: node-modules-${{ hashFiles('package-lock.json') }}
+          key: node-modules-${{ hashFiles('pnpm-lock.yaml') }}
 
       - name: Install dependencies
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: npm ci
+        run: pnpm install
 
       - name: Run checks # run the checks passing in the ENVIRONMENT_URL and recording a test session.
         id: run-checks
